@@ -8,7 +8,11 @@ import android.widget.Toast;
 
 
 public class DetallePedidoEliminarActivity extends Activity {
-    EditText editidTipoPago,editidProducto,editidDetallePedido;
+    EditText editidTipoPago;
+    EditText editidProducto;
+    EditText editidDetallePedido;
+    EditText editcantidad;
+    EditText editEstadoPedido;
     ControlBD controlhelper;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,9 @@ public class DetallePedidoEliminarActivity extends Activity {
         editidTipoPago=(EditText)findViewById(R.id.editidTipoPago);
         editidProducto=(EditText)findViewById(R.id.editidProducto);
         editidDetallePedido=(EditText)findViewById(R.id.editidDetallePedido);
+        editcantidad=(EditText)findViewById(R.id.editcantidad);
+        editEstadoPedido=(EditText)findViewById(R.id.editEstadoPedido);
+
     }
 
     public void eliminarDetallePedido(View v){
@@ -26,6 +33,8 @@ public class DetallePedidoEliminarActivity extends Activity {
         detalle.setIdTipoPago(editidTipoPago.getText().toString());
         detalle.setIdProducto(editidProducto.getText().toString());
         detalle.setIdDetallePedido(editidDetallePedido.getText().toString());
+        detalle.setCantidad(editcantidad.getText().toString());
+        detalle.setEstadoPedido(editEstadoPedido.getText().toString());
         controlhelper.abrir();
         regEliminadas=controlhelper.eliminar(detalle);
         controlhelper.cerrar();
@@ -35,6 +44,8 @@ public class DetallePedidoEliminarActivity extends Activity {
         editidTipoPago.setText("");
         editidProducto.setText("");
         editidDetallePedido.setText("");
+        editcantidad.setText("");
+        editEstadoPedido.setText("");
     }
 }
 

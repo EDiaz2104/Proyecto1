@@ -12,7 +12,7 @@ public class ProductoInsertarActivity extends Activity {
     EditText editidProducto;
     EditText editNombreProducto;
     EditText editidLocal;
-    EditText editIdProveedor;
+    EditText editidProveedor;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +21,13 @@ public class ProductoInsertarActivity extends Activity {
         editidProducto = (EditText) findViewById(R.id.editidProducto);
         editNombreProducto = (EditText) findViewById(R.id.editNombreProducto);
         editidLocal = (EditText) findViewById(R.id.editidLocal);
-        editIdProveedor = (EditText) findViewById(R.id.editidProveedor);
+        editidProveedor = (EditText) findViewById(R.id.editidProveedor);
     }
     public void insertarProducto(View v) {
         int idProducto=editidProducto.getId();
         String NombreProducto=editNombreProducto.getText().toString();
         String idLocal=editidLocal.getText().toString();
-        String idProveedor=editIdProveedor.getText().toString();
+        String idProveedor=editidProveedor.getText().toString();
         String regInsertados;
         Producto pro=new Producto();
         pro.setIdProducto(idProducto);
@@ -43,7 +43,7 @@ public class ProductoInsertarActivity extends Activity {
         editidProducto.setText("");
         editNombreProducto.setText("");
         editidLocal.setText("");
-        editIdProveedor.setText("");
+        editidProveedor.setText("");
     }
 
 }

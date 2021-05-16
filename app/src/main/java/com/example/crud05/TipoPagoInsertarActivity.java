@@ -9,7 +9,7 @@ import android.widget.Toast;
 public class TipoPagoInsertarActivity extends Activity {
 
     ControlBD helper;
-   // EditText editidTipoPago;
+   EditText editidTipoPago;
     EditText edittipoPago;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -21,19 +21,19 @@ public class TipoPagoInsertarActivity extends Activity {
 
     }
     public void insertarTipoPago(View v) {
-        //Integer idTipoPago=editidTipoPago.getId();
+        Integer idTipoPago=editidTipoPago.getId();
         String tipoPago=edittipoPago.getText().toString();
         String regInsertados;
-        TipoPago alumno=new TipoPago();
-        //alumno.setIdTipoPago(idTipoPago);
-        alumno.setTipoPago(tipoPago);
+        TipoPago tipo=new TipoPago();
+        tipo.setIdTipoPago(idTipoPago);
+        tipo.setTipoPago(tipoPago);
         helper.abrir();
-        regInsertados=helper.insertar(alumno);
+        regInsertados=helper.insertar(tipo);
         helper.cerrar();
         Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v) {
-        //editidTipoPago.setText("");
+        editidTipoPago.setText("");
         edittipoPago.setText("");
 
     }

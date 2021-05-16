@@ -27,4 +27,8 @@ public class TipoPagoEliminarActivity extends Activity {
         controlhelper.cerrar();
         Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
     }
+    public void limpiarTexto(View v) {
+        editidTipoPago.setText("");
+
+    }
 }
