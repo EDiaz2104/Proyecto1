@@ -38,4 +38,16 @@
     <string name="NombreProducto">Nombre del Producto</string>
     <string name="idLocal">idLocal</string>
     <string name="idProveedor">idProveedor</string>
+
+
+    <string name="Hora_Id">Id:</string>
+    <string name="Hora_Dia">Dia:</string>
+    <string name="Hora_Apertura">Apertura:</string>
+    <string name="Hora_Cierre">Cierre:</string>
+    <string name="Guardar">Guardar</string>
+    <string name="Consultar">Consultar</string>
+    <string name="Actualizar">Actualizar</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="Limpiar">Limpiar</string>
+
 </resources>
