@@ -11,33 +11,33 @@
         <EditText
             android:id="@+id/editidTipoPago"
             android:inputType="text"
-            android:maxLength="7" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/idProducto" />
         <EditText
             android:id="@+id/editidProducto"
             android:inputType="text"
-            android:maxLength="6" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/idDetallePedido" />
         <EditText
             android:id="@+id/editidDetallePedido"
             android:inputType="text"
-            android:maxLength="5" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/cantidad" />
         <EditText
             android:id="@+id/editcantidad"
-            android:inputType="numberDecimal" />
+            android:inputType="text" />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/EstadoPedido" />
         <EditText
             android:id="@+id/editEstadoPedido"
-            android:inputType="numberDecimal" />
+            android:inputType="text" />
     </TableRow>
     <TableRow>
         <Button

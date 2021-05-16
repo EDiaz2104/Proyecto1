@@ -13,14 +13,14 @@
             android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:maxLength="10" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/tipoPago" />
         <EditText
             android:id="@+id/edittipoPago"
             android:inputType="text"
-            android:maxLength="30" />
+             />
     </TableRow>
 
     <TableRow>

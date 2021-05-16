@@ -9,14 +9,14 @@
         <EditText
             android:id="@+id/editidTipoPago"
             android:inputType="text"
-            android:maxLength="1" />
+            />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/tipopago" />
         <EditText
             android:id="@+id/edittipoPago"
             android:inputType="text"
-            android:maxLength="30" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/opciones" />

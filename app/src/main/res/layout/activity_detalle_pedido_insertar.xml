@@ -9,35 +9,35 @@
         <EditText
             android:id="@+id/editidDetallePedido"
             android:inputType="number"
-            android:maxLength="10" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/tipoPago"/>
         <EditText
             android:id="@+id/edittipoPago"
             android:inputType="text"
-            android:maxLength="30" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/NombreProducto" />
         <EditText
             android:id="@+id/editNombreProducto"
             android:inputType="text"
-            android:maxLength="30" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/cantidad" />
         <EditText
             android:id="@+id/editcantidad"
             android:inputType="text"
-            android:maxLength="100" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/EstadoPedido" />
         <EditText
             android:id="@+id/editEstadoPedido"
             android:inputType="text"
-            android:maxLength="10" />
+            />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/opciones" />

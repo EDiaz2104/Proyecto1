@@ -9,14 +9,14 @@
         <EditText
             android:id="@+id/editidProducto"
             android:inputType="text"
-            android:maxLength="7" />
+           />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/NombreProducto" />
         <EditText
             android:id="@+id/editNombreProducto"
             android:inputType="text"
-            android:maxLength="30" />
+           />
     </TableRow>
 
     <TableRow>

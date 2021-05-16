@@ -9,28 +9,28 @@
         <EditText
             android:id="@+id/editCodmateria"
             android:inputType="text"
-            android:maxLength="7" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/NombreProducto" />
         <EditText
             android:id="@+id/editNombreProducto"
             android:inputType="text"
-            android:maxLength="30" />
+             />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/idLocal" />
         <EditText
             android:id="@+id/editidLocal"
             android:inputType="text"
-            android:maxLength="1" />
+            />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/idProveedor" />
         <EditText
             android:id="@+id/editidProveedor"
             android:inputType="text"
-            android:maxLength="1" />
+            />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/opciones" />

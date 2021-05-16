@@ -22,7 +22,7 @@
     <string name="eliminar_registro">Eliminar Registro</string>
     <string name="consultar_registro">Consultar Registro</string>
     <string name="actualizar_registro">Actualizar Registro</string>
-    <string name="idTipoPago">id</string>
+    <string name="idTipoPago">id TipoPago</string>
     <string name="tipopago">tipo pago</string>
     <string name="opciones">opciones</string>
     <string name="insertar">insertar</string>
@@ -31,11 +31,11 @@
     <string name="tipoPago">tipo Pago</string>
     <string name="actualizar">actualizar</string>
     <string name="eliminar">eliminar</string>
-    <string name="idProducto">id</string>
-    <string name="idDetallePedido">id</string>
+    <string name="idProducto">id Producto</string>
+    <string name="idDetallePedido">id Detalle de pedido</string>
     <string name="cantidad">cantidad</string>
     <string name="EstadoPedido">Estado de Pedido</string>
     <string name="NombreProducto">Nombre del Producto</string>
-    <string name="idLocal">idLocal</string>
-    <string name="idProveedor">idProveedor</string>
+    <string name="idLocal">id Local</string>
+    <string name="idProveedor">id Proveedor</string>
 </resources>
