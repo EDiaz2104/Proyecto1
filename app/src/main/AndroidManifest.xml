@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.crud05">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Crud05">
+        <activity android:name=".ProductoConsultarActivity"></activity>
+        <activity android:name=".ProductoActualizarActivity" />
+        <activity android:name=".ProductoEliminarActivity" />
+        <activity android:name=".ProductoInsertarActivity" />
+        <activity android:name=".DetallePedidoConsultarActivity" />
+        <activity android:name=".DetallePedidoActualizarActivity" />
+        <activity android:name=".DetallePedidoEliminarActivity" />
+        <activity android:name=".DetallePedidoInsertarActivity" />
+        <activity android:name=".TipoPagoConsultarActivity" />
+        <activity android:name=".TipoPagoActualizarActivity" />
+        <activity android:name=".TipoPagoEliminarActivity" />
+        <activity android:name=".TipoPagoInsertarActivity" />
+        <activity android:name=".ProductoActivity" />
+        <activity android:name=".DetallePedidoActivity" />
+        <activity android:name=".TipoPagoActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

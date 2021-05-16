@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dip"
+    android:stretchColumns="1" >
+    <TableRow>
+
+        <TextView android:text="@string/idTipoPago" />
+
+        <EditText
+            android:id="@+id/editidTipoPago"
+            android:inputType="text"
+            android:maxLength="7" />
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idProducto" />
+        <EditText
+            android:id="@+id/editidProducto"
+            android:inputType="text"
+            android:maxLength="6" />
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idDetallePedido" />
+        <EditText
+            android:id="@+id/editidDetallePedido"
+            android:inputType="text"
+            android:maxLength="5" />
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/cantidad" />
+        <EditText
+            android:id="@+id/editcantidad"
+            android:inputType="numberDecimal" />
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/EstadoPedido" />
+        <EditText
+            android:id="@+id/editEstadoPedido"
+            android:inputType="numberDecimal" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:onClick="actualizarDetallepedido"
+            android:text="@string/actualizar" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:onClick="limpiarTexto"
+            android:text="@string/limpiar" />
+    </TableRow>
+</TableLayout>
