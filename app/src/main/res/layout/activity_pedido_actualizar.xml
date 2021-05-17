@@ -16,35 +16,35 @@
         <EditText
             android:id="@+id/editIdLocal"
             android:inputType="text"
-            android:maxLength="30" />
+            android:maxLength="7" />
     </TableRow>
     <TableRow>
         <TextView android:text="Id Combo" />
         <EditText
             android:id="@+id/editIdCombo"
             android:inputType="text"
-            android:maxLength="1" />
+            android:maxLength="7" />
     </TableRow>
     <TableRow>
         <TextView android:text="Usuario" />
         <EditText
             android:id="@+id/editIdUsuario"
             android:inputType="text"
-            android:maxLength="1" />
+            android:maxLength="7" />
     </TableRow>
     <TableRow>
         <TextView android:text="Detalle pedido" />
         <EditText
             android:id="@+id/editIdDetallePedido"
             android:inputType="text"
-            android:maxLength="1" />
+            android:maxLength="7" />
     </TableRow>
     <TableRow>
         <TextView android:text="fecha pedido" />
         <EditText
             android:id="@+id/editFechaPedido"
             android:inputType="text"
-            android:maxLength="1" />
+            android:maxLength="30" />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/opciones" />
