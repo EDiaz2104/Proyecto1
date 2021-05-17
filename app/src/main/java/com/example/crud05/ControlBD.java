@@ -764,6 +764,25 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    public String insertar(PedidoAsignado pedidoasignado){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues ped = new ContentValues();
+        ped.put("idPedidoAsignado", pedidoasignado.getIdPedidoAsignado());
+        ped.put("idPedido", pedidoasignado.getIdPedido());
+        ped.put("idRepartidor", pedidoasignado.getIdRepartidor());
+        contador=db.insert("pedidoasignado", null, ped);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){
         case 1:
