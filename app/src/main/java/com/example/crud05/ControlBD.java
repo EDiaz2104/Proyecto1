@@ -19,6 +19,7 @@ public class ControlBD{
     private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
     private static final String[]camposPedidoAsignado = new String [] {"idPedidoAsignado","idPedido","idRepartidor"};
     private static final String[]camposRepartidor = new String [] {"idRepartidor","idLocal","NombreRepartidor","CarnetRepartidor"};
+    private static final String[]camposCategoria = new String [] {"idCategoria","idProducto","NombreCategoria","DescripcionCategoria"};
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -42,6 +43,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE detallepedido(idTipoPago INTEGER NOT NULL ,idProducto INTEGER NOT NULL ,idDetallePedido INTEGER ,cantidad INTEGER,EstadoPedido BOOLEAN ,PRIMARY KEY(idTipoPago,idProducto,idDetallePedido));");
 
             db.execSQL("CREATE TABLE repartidor(idRepartidor INTEGER NOT NULL PRIMARY KEY,idLocal INTEGER,NombreRepartidor VARCHAR(30), CarnetRepartidor VARCHAR(10));");
+            db.execSQL("CREATE TABLE categoriaproducto(idCategoria INTEGER NOT NULL PRIMARY KEY,idProducto INTEGER,NombreCategoria VARCHAR(30), DescripcionCategoria VARCHAR(30));");
             db.execSQL("CREATE TABLE pedidoasignado(idPedidoAsignado INTEGER NOT NULL PRIMARY KEY,idPedido INTEGER,idRepartidor INTEGER);");
             db.execSQL("CREATE TABLE pedido(idPedido INTEGER NOT NULL PRIMARY KEY,idLocal INTEGER,idCombo INTEGER, idUsuario INTEGER,idDetallePedido INTEGER,FechaPedido VARCHAR(30));");
 
@@ -697,6 +699,69 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         contador+=db.delete("repartidor", "idRepartidor='"+repartidor.getIdRepartidor()+"'", null);
         regAfectados+=contador;
         return regAfectados;
+
+    }
+
+    public String insertar(Categoria categoria){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues ped = new ContentValues();
+        ped.put("idCategoria", categoria.getIdCategoria());
+        ped.put("idProducto", categoria.getIdProducto());
+        ped.put("NombreCategoria", categoria.getNombreCategoria());
+        ped.put("DescripcionCategoria", categoria.getDescripcionCategoria());
+        contador=db.insert("categoriaproducto", null, ped);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String actualizar(Categoria categoria){
+        if(categoria!=null){
+            String[] id = {String.valueOf(categoria.getIdCategoria())};
+            ContentValues cv = new ContentValues();
+            cv.put("idCategoria", categoria.getIdCategoria());
+            cv.put("idProducto", categoria.getIdProducto());
+            cv.put("NombreCategoria", categoria.getNombreCategoria());
+            cv.put("DescripcionCategoria", categoria.getDescripcionCategoria());
+            db.update("categoriaproducto", cv, "idCategoria = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Categoria " + categoria.getIdCategoria() + " no existe";
+        }
+    }
+
+    public String eliminar(Categoria categoria){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (categoria!=null) {
+            contador+=db.delete("categoriaproducto", "idCategoria='"+categoria.getIdCategoria()+"'", null);
+        }
+        contador+=db.delete("categoriaproducto", "idCategoria='"+categoria.getIdCategoria()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
+    }
+    public Categoria consultarCategoria(String idCategoria){
+
+        String[] id = {idCategoria};
+        Cursor cursor = db.query("categoriaproducto", camposCategoria, "idCategoria = ?",
+                id, null, null, null);
+        if(cursor.moveToFirst()){
+            Categoria categoria= new Categoria();
+            categoria.setIdCategoria(cursor.getInt(0));
+            categoria.setIdProducto(cursor.getInt(1));
+            categoria.setNombreCategoria(cursor.getString(2));
+            categoria.setDescripcionCategoria(cursor.getString(3));
+            return categoria;
+        }else{
+            return null;
+        }
 
     }
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{

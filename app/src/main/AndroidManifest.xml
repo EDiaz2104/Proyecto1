@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".DetalleProductoCrudActivity"></activity>
+        <activity android:name=".CategoriaEliminarActivity"></activity>
+        <activity android:name=".CategoriaConsultarActivity" />
+        <activity android:name=".CategoriaActualizarActivity" />
+        <activity android:name=".CategoriaInsertarActivity" />
+        <activity android:name=".CategoriaMenuActivity" />
+        <activity android:name=".DetalleProductoCrudActivity" />
         <activity android:name=".HorarioEliminarConsultarActivity" />
         <activity android:name=".HorarioActualizarActivity" />
         <activity android:name=".HorarioInsertarActivity" />
@@ -53,7 +58,6 @@
         <activity android:name=".PedidoAsignadoConsultarActivity" />
         <activity android:name=".PedidoAsignadoActualizarActivity" />
         <activity android:name=".PedidoAsignadoEliminarActivity" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
