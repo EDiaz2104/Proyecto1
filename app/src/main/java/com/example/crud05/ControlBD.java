@@ -7,6 +7,9 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.crud05.Modelos.Preferencial;
+import com.example.crud05.Modelos.Usuario;
+
 public class ControlBD{
     private static final String[]camposTipoPago = new String []{"idTipoPago","tipoPago"};
     private static final String[]camposDetallepedido = new String []{"idDetallePedido","idTipoPago","idProducto","cantidad","EstadoPedido"};
@@ -19,6 +22,21 @@ public class ControlBD{
     private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
     private static final String[]camposPedidoAsignado = new String [] {"idPedidoAsignado","idPedido","idRepartidor"};
     private static final String[]camposRepartidor = new String [] {"idRepartidor","idLocal","NombreRepartidor","CarnetRepartidor"};
+    private static final String[] campos_usuario = new String[] {
+            "idusuario",
+            "nombreUsuario",
+            "apelUsuario",
+            "telUsuario",
+            "direccionUsuario",
+            "estadoUsuario",
+            "emailUsuario",
+            "claveUsuario"
+    };
+    private static final String[] campos_preferencial = new String[] {
+            "idPreferencial",
+            "idUsuario",
+            "idLocal"
+    };
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -50,6 +68,23 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE local(idlocal INTEGER NOT NULL PRIMARY KEY, idencargadolocal INTEGER NOT NULL, idubicacion INTEGER NOT NULL, nomlocal VARCHAR(50));");
             db.execSQL("CREATE TABLE horario(idhorario INTEGER NOT NULL PRIMARY KEY, idlocal INTEGER NOT NULL, dia VARCHAR(10), apertura VARCHAR(10),cierre VARCHAR(10));");
             db.execSQL("CREATE TABLE detalleproducto(idDetalleProduc INTEGER NOT NULL PRIMARY KEY, idProducto INTEGER NOT NULL, cantidadProducto INTEGER NOT NULL, precioProducto VARCHAR(8));");
+
+            db.execSQL("CREATE TABLE Usuario (" +
+                    "idusuario INTEGER PRIMARY KEY ," +
+                    "nombreUsuario TEXT," +
+                    "apelUsuario TEXT," +
+                    "telUsuario TEXT," +
+                    "direccionUsuario TEXT," +
+                    "estadoUsuario INTEGER," +
+                    "emailUsuario TEXT," +
+                    "claveUsuario TEXT" +
+                    ")");
+            db.execSQL("CREATE TABLE Preferencial (" +
+                    "idPreferencial INTEGER PRIMARY KEY," +
+                    "idUsuario INTEGER," +
+                    "idLocal INTEGER" +
+                    ")");
+
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -66,6 +101,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
     public void cerrar(){
         DBHelper.close();
     }
+
 
 
     public String insertar(TipoPago tipopago){
@@ -785,5 +821,183 @@ default:
         return false;
         }
     }
+    //Usuario y Preferencial
+    public String insertar(Usuario usuario){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues usu = new ContentValues();
+        usu.put("nombreUsuario", usuario.getNombreUsuario());
+        usu.put("apelUsuario", usuario.getApelUsuario());
+        usu.put("telUsuario", usuario.getTelUsuario());
+        usu.put("direccionUsuario", usuario.getDireccionUsuario());
+        usu.put("estadoUsuario", usuario.getEstadoUsuario());
+        usu.put("emailUsuario", usuario.getEmailUsuario());
+        usu.put("claveUsuario", usuario.getClaveUsuario());
+        contador=db.insert("Usuario", null, usu);
+        if(contador==-1 || contador==0){regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }else{
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String insertar(Preferencial preferencial){
+        if (verificarIntegridad2(preferencial, 2)){
+            String regInsertados="Registro Insertado Nº= ";
+            long contador=0;
+            ContentValues pre = new ContentValues();
+            pre.put("idLocal", preferencial.getIdLocal());
+            pre.put("idUsuario",preferencial.getIdUsuario());
+
+            contador=db.insert("Preferencial", null, pre);
+            if(contador==-1 || contador==0){regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+            }else{
+                regInsertados=regInsertados+contador;
+            }
+            return regInsertados;
+        }
+        else{
+            return"Error de integridad. Registro usuario o local no existe";
+        }
+    }
+
+    //Actualizar
+    public String actualizar(Usuario usuario){
+        if (verificarIntegridad2(usuario,3)){
+            String[] id = {String.valueOf(usuario.getIdUsuario())};
+            ContentValues cv = new ContentValues();
+            cv.put("nombreUsuario", usuario.getNombreUsuario());
+            cv.put("apelUsuario", usuario.getApelUsuario());
+            cv.put("telUsuario", usuario.getTelUsuario());
+            cv.put("direccionUsuario", usuario.getDireccionUsuario());
+            cv.put("estadoUsuario", usuario.getEstadoUsuario());
+            cv.put("emailUsuario", usuario.getEmailUsuario());
+            cv.put("claveUsuario", usuario.getClaveUsuario());
+            db.update("Usuario", cv, "idUsuario = ?", id);
+            return"Registro Actualizado Correctamente";
+        }
+        else{
+            return"Registro de usuario con id "+usuario.getIdUsuario()+" no existe";
+        }
+    }
+
+    public String actualizar(Preferencial preferencial){
+        if (verificarIntegridad2(preferencial,5)){
+            String[] id = {String.valueOf(preferencial.getIdPreferencial())};
+            ContentValues cv = new ContentValues();
+            cv.put("idUsuario", preferencial.getIdUsuario());
+            cv.put("idLocal", preferencial.getIdLocal());
+            db.update("Preferencial", cv, "idPreferencial = ?", id);
+            return"Registro Actualizado Correctamente";
+        }
+        else{
+            return"Registro de preferencial con id "+preferencial.getIdPreferencial()+" no existe";
+        }
+    }
+
+    //Eliminar
+    public String eliminar(Usuario usuario){
+        String regAfectados="filas afectadas= ";
+        if (verificarIntegridad2(usuario,3)){
+            db.delete("Usuario", "idUsuario='"+usuario.getIdUsuario()+"'", null);
+            return"Registro Borrado Correctamente";
+        }
+        else{
+            return"Registro de usuario con id "+usuario.getIdUsuario()+" no existe";
+        }
+    }
+
+    public String eliminar(Preferencial preferencial){
+        String regAfectados="filas afectadas= ";
+        if (verificarIntegridad2(preferencial,5)){
+            db.delete("Preferencial", "idPreferencial='"+preferencial.getIdPreferencial()+"'", null);
+            return"Registro Borrado Correctamente";
+        }
+        else{
+            return"Registro de preferencial con id "+preferencial.getIdUsuario()+" no existe";
+        }    }
+
+    //Consultar
+    public Usuario consultarUsuario(String idU){
+        String[] id = {idU};
+        Cursor cursor = db.query("Usuario", campos_usuario, "idUsuario = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Usuario usuario = new Usuario();
+            usuario.setIdUsuario(cursor.getInt(0));
+            usuario.setNombreUsuario(cursor.getString(1));
+            usuario.setApelUsuario(cursor.getString(2));
+            usuario.setTelUsuario(cursor.getString(3));
+            usuario.setDireccionUsuario(cursor.getString(4));
+            usuario.setEstadoUsuario(cursor.getInt(5));
+            usuario.setEmailUsuario(cursor.getString(6));
+            usuario.setClaveUsuario(cursor.getString(7));
+            return usuario;
+        }else{
+            return null;
+        }
+    }
+
+    public Preferencial consultarPrefererncial(String idP){
+        String[] id = {idP};
+        Cursor cursor = db.query("Preferencial", campos_preferencial, "idPreferencial = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Preferencial preferencial = new Preferencial();
+            preferencial.setIdPreferencial(cursor.getInt(0));
+            preferencial.setIdUsuario(cursor.getInt(1));
+            preferencial.setIdLocal(cursor.getInt(2));
+            return preferencial;
+        }else{
+            return null;
+        }
+    }
+
+    //Integridades
+    private boolean verificarIntegridad2(Object dato, int relacion) throws SQLException{
+        switch(relacion){
+            //Preferencial insertar -> exista Usuario y Local
+            case 2:
+            {
+                Preferencial pre = (Preferencial) dato;
+                String[] id1 = {String.valueOf(pre.getIdUsuario())};
+                String[] id2 = {String.valueOf(pre.getIdLocal())};
+                Cursor cursor1 = db.query("Usuario", null, "idUsuario = ?", id1, null, null, null);
+                Cursor cursor2 = db.query("Local", null, "idLocal = ?", id2, null, null, null);
+                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
+                    return true;
+                }
+                else return false;
+            }
+            //verificar que exista Usuario
+            case 3:
+            {   Usuario usuario = (Usuario)dato;
+                String[] id = {String.valueOf(usuario.getIdUsuario())};
+                abrir();
+                Cursor c = db.query("Usuario", null, "idUsuario = ?", id, null, null, null);
+                if(c.moveToFirst()){
+                    //Se encontro Usuario
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            //verificar que exista Preferencial
+            case 5:
+            {
+                Preferencial preferencial = (Preferencial) dato;
+                String[] id3 = {String.valueOf(preferencial.getIdPreferencial())};
+                abrir();
+                Cursor c3 = db.query("Preferencial", null, "idPreferencial = ?", id3, null, null, null);
+                if (c3.moveToFirst()) {
+                    //Se encontro Preferencial
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            default: return false;
+        }
+    }
+
 
 }

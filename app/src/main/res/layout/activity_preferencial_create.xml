@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Preferencial.PreferencialCreateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_preferencial_crear"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:layout_margin="12dp"
+            />
+        <!--IdUsuario-->
+        <TextView
+            android:id="@+id/idUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Id Usuario"
+            android:textAllCaps="true"
+            android:layout_margin="12dp"
+            />
+
+        <EditText
+            android:id="@+id/edit_idUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="50"
+            android:inputType="text"
+            android:layout_margin="12dp" />
+        <!--IdLocal-->
+        <TextView
+            android:id="@+id/idLocal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Id Local"
+            android:textAllCaps="true"
+            android:layout_margin="12dp"
+            />
+
+        <EditText
+            android:id="@+id/edit_idLocal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="50"
+            android:inputType="text"
+            android:layout_margin="12dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:text="@string/title_preferencial_crear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="insertarPreferencial"
+        android:layout_margin="12dp"
+        app:layout_constraintBottom_toTopOf="@id/limpiar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@id/limpiar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="limpiarTexto"
+        android:layout_margin="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Limpiar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
