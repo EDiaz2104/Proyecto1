@@ -6,13 +6,21 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 public class ControlBD{
     private static final String[]camposTipoPago = new String []{"idTipoPago","tipoPago"};
     private static final String[]camposDetallepedido = new String []{"idDetallePedido","idTipoPago","idProducto","cantidad","EstadoPedido"};
     private static final String[] camposProducto = new String []{"idProducto","NombreProducto","idLocal","idProveedor"};
+    private static final String[]camposHorario = new String []{"idhorario","idlocal","dia","apertura","cierre"};
+    private static final String[]camposLocal = new String []{"idlocal", "idencargadolocal", "idubicacion", "nomlocal"};
+    private static final String[]camposUbicacion = new String []{"idubicacion","descripcionubicacion"};
+    private static final String[]camposEncargadoLocal = new String []{"idencargadolocal", "idusuario", "nomencargado", "apelencargado","telencargado"};
+
+
     private final Context context;
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;
+
     public ControlBD(Context ctx) {
         this.context = ctx;
         DBHelper = new DatabaseHelper(context);
@@ -29,6 +37,12 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE tipopago(idTipoPago INTEGER NOT NULL PRIMARY KEY,tipoPago VARCHAR(30));");
             db.execSQL("CREATE TABLE producto(idProducto INTEGER NOT NULL PRIMARY KEY,NombreProducto VARCHAR(50),idLocal INTEGER,idProveedor INTEGER);");
             db.execSQL("CREATE TABLE detallepedido(idTipoPago INTEGER NOT NULL ,idProducto INTEGER NOT NULL ,idDetallePedido INTEGER ,cantidad INTEGER,EstadoPedido BOOLEAN ,PRIMARY KEY(idTipoPago,idProducto,idDetallePedido));");
+
+            db.execSQL("CREATE TABLE ubicacion(idubicacion INTEGER NOT NULL PRIMARY KEY, descripcionubicacion VARCHAR(50));");
+            db.execSQL("CREATE TABLE encargadolocal(idencargadolocal INTEGER NOT NULL PRIMARY KEY, idusuario INTEGER NOT NULL, nomencargado VARCHAR(50), apelencargado VARCHAR(50), telencargado VARCHAR(10));");
+            db.execSQL("CREATE TABLE local(idlocal INTEGER NOT NULL PRIMARY KEY, idencargadolocal INTEGER NOT NULL, idubicacion INTEGER NOT NULL, nomlocal VARCHAR(50));");
+            db.execSQL("CREATE TABLE horario(idhorario INTEGER NOT NULL PRIMARY KEY, idlocal INTEGER NOT NULL, dia VARCHAR(10), apertura VARCHAR(10),cierre VARCHAR(10));");
+
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -226,6 +240,260 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             return null;
         }
         }
+
+    ////////////////////////////////HORARIO//////////////////////////////////
+
+    public String insertarHorario(Horario horario){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues registro = new ContentValues();
+        registro.put("idhorario", horario.getIdhorario());
+        registro.put("idlocal", horario.getIdlocal() );
+        registro.put("dia", horario.getDia());
+        registro.put("apertura", horario.getApertura());
+        registro.put("cierre", horario.getCierre());
+        contador=db.insert("horario", null, registro);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public Horario consultarHorario(String idhorario){
+        String[] id = {idhorario};
+        Cursor cursor = db.query("horario", camposHorario, "idhorario = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Horario horario = new Horario();
+            horario.setIdhorario(cursor.getInt(0));
+            horario.setIdlocal(cursor.getInt(1));
+            horario.setDia(cursor.getString(2));
+            horario.setApertura(cursor.getString(3));
+            horario.setCierre(cursor.getString(4));
+            return horario;
+        }else{
+            return null;
+        }
+    }
+
+    public String actualizarHorario(Horario hora){
+        Integer v_id = hora.getIdhorario();                                                        //Pequeño artifisio para convertir el int en string
+        String[] id = {String.valueOf(v_id)};
+        ContentValues cv = new ContentValues();
+        cv.put("idlocal", hora.getIdlocal());
+        cv.put("dia", hora.getDia());
+        cv.put("apertura", hora.getApertura());
+        cv.put("cierre", hora.getCierre());
+        int registro = db.update("horario", cv, "idhorario = ?", id);            //el id solo acepta string
+
+        if(registro == 1){
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con carnet " + hora.getIdhorario() + " no existe";
+        }
+    }
+
+    public String eliminarHorario(Horario hora){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        //if (verificarIntegridad(hora,3)) {
+        //    contador+=db.delete("nota", "carnet='"+hora.getIdhorario()+"'", null);
+        //}
+        contador+=db.delete("horario", "idhorario='"+hora.getIdhorario()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
+
+    ///////////////////////////////UBICACION///////////////////////////////
+
+    public String insertarUbicacion(Ubicacion ubi){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues registro = new ContentValues();
+        registro.put("idubicacion", ubi.getIdubicacion());
+        registro.put("descripcionubicacion", ubi.getDescripcionubicacion());
+        contador=db.insert("ubicacion", null, registro);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String actualizarUbicacion(Ubicacion ubi){
+        Integer v_id = ubi.getIdubicacion();                                                        //Pequeño artifisio para convertir el int en string
+        String[] id = {String.valueOf(v_id)};
+        ContentValues cv = new ContentValues();
+        cv.put("descripcionubicacion", ubi.getDescripcionubicacion());
+        int registro = db.update("ubicacion", cv, "idubicacion = ?", id);         //el id solo acepta string
+
+        if(registro == 1){
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con ID " + ubi.getIdubicacion() + " no existe";
+        }
+    }
+
+    public Ubicacion consultarUbicacion(String idubicacion){
+        String[] id = {idubicacion};
+        Cursor cursor = db.query("ubicacion", camposUbicacion, "idubicacion = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Ubicacion ubi = new Ubicacion();
+            ubi.setIdubicacion(cursor.getInt(0));
+            ubi.setDescripcionubicacion(cursor.getString(1));
+            return ubi;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarUbicacion(Ubicacion ubicacion){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        //if (verificarIntegridad(hora,3)) {
+        //    contador+=db.delete("nota", "carnet='"+hora.getidubicacion()+"'", null);
+        //}
+        contador+=db.delete("ubicacion", "idubicacion='"+ubicacion.getIdubicacion()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
+
+    ///////////////////////////////ENCARGADO DE LOCAL///////////////////////////////
+
+    public String insertarEncargado(EncargadoLocal encargado){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues registro = new ContentValues();
+        registro.put("idencargadolocal", encargado.getIdencargadolocal());
+        registro.put("idusuario", encargado.getIdusuario());
+        registro.put("nomencargado", encargado.getNomencargado());
+        registro.put("apelencargado", encargado.getApelencargado());
+        registro.put("telencargado", encargado.getTelencargado());
+        contador=db.insert("encargadolocal", null, registro);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String actualizarEncargado(EncargadoLocal encargado){
+        Integer v_id = encargado.getIdencargadolocal();        //Pequeño artifisio para convertir el int en string
+        String[] id = {String.valueOf(v_id)};
+        ContentValues reg = new ContentValues();
+        //reg.put("idencargadolocal", encargado.getIdencargadolocal());
+        reg.put("idusuario", encargado.getIdusuario());
+        reg.put("nomencargado", encargado.getNomencargado());
+        reg.put("apelencargado", encargado.getApelencargado());
+        reg.put("telencargado", encargado.getTelencargado());
+        int registro = db.update("encargadolocal", reg, "idencargadolocal = ?", id); //el id solo acepta string
+
+        if(registro == 1){
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con ID " + encargado.getIdencargadolocal() + " no existe";
+        }
+    }
+
+    public EncargadoLocal consultarEncargado(String idencargado){
+        String[] id = {idencargado};
+        Cursor cursor = db.query("encargadolocal", camposEncargadoLocal, "idencargadolocal = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            EncargadoLocal encargado = new EncargadoLocal();
+            encargado.setIdencargadolocal(cursor.getInt(0));
+            encargado.setIdusuario(cursor.getInt(1));
+            encargado.setNomencargado(cursor.getString(2));
+            encargado.setApelencargado(cursor.getString(3));
+            encargado.setTelencargado(cursor.getString(4));
+            return encargado;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarEncargado(EncargadoLocal encargado){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        //if (verificarIntegridad(hora,3)) {
+        //    contador+=db.delete("nota", "carnet='"+hora.getidubicacion()+"'", null);
+        //}
+        contador+=db.delete("encargadolocal", "idencargadolocal='"+encargado.getIdencargadolocal()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
+
+    /////////////////////////////////LOCAL///////////////////////////////////
+
+    public String insertarLocal(Local local){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues registro = new ContentValues();
+        registro.put("idlocal", local.getIdlocal());
+        registro.put("idencargadolocal", local.getIdencargadolocal());
+        registro.put("idubicacion", local.getIdubicacion());
+        registro.put("nomlocal", local.getNomlocal());
+        contador=db.insert("local", null, registro);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String actualizarLocal(Local local){
+        Integer v_id = local.getIdlocal();        //Pequeño artifisio para convertir el int en string
+        String[] id = {String.valueOf(v_id)};
+        ContentValues registro = new ContentValues();
+        registro.put("idencargadolocal", local.getIdencargadolocal());
+        registro.put("idubicacion", local.getIdubicacion());
+        registro.put("nomlocal", local.getNomlocal());
+        int contador = db.update("local", registro, "idlocal = ?", id); //el id solo acepta string
+
+        if(contador == 1){
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con ID " + local.getIdlocal() + " no existe";
+        }
+    }
+
+    public Local consultarLocal(String idlocal){
+        String[] id = {idlocal};
+        Cursor cursor = db.query("local", camposLocal, "idlocal = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Local local = new Local();
+            local.setIdlocal(cursor.getInt(0));
+            local.setIdencargadolocal(cursor.getInt(1));
+            local.setIdubicacion(cursor.getInt(2));
+            local.setNomlocal(cursor.getString(3));
+            return local;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarLocal(Local local){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        //if (verificarIntegridad(hora,3)) {
+        //    contador+=db.delete("nota", "carnet='"+hora.getidubicacion()+"'", null);
+        //}
+        contador+=db.delete("local", "idlocal='"+local.getIdlocal()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
+
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){
         case 1:

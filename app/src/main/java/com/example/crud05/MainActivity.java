@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 public class MainActivity extends ListActivity {
-    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto"};
-            String[]
-    activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity"};
+    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion"};
+    String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","HorarioMenuActivity","EncargadoLocalMenuActivity","UbicacionMenuActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class MainActivity extends ListActivity {
     protected void onListItemClick(ListView l,View v,int position,long id){
         super.onListItemClick(l, v, position, id);
 
-        if(position!=3){
+        if(position!=7){   //SE TIENE QUE CAMBIAR EL NUMERO
 
             String nombreValue=activities[position];
 
@@ -36,8 +36,7 @@ public class MainActivity extends ListActivity {
                 e.printStackTrace();
             }
         }else{
-
-//CODIGO PARA LLENAR BASE DE DATOS
+            //CODIGO PARA LLENAR BASE DE DATOS
         }
     }
 }

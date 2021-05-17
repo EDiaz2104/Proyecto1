@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocalCrearActualizarActivity">
+
+    <TextView
+        android:id="@+id/textidlocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
+        android:text="Id:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textVidEntLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="48dp"
+        android:text="Id Encargado:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textidlocal" />
+
+    <TextView
+        android:id="@+id/textVIdUbiLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:text="Id Ubicacion:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVidEntLocal" />
+
+    <TextView
+        android:id="@+id/textVNomLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:text="Nombre Local:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVIdUbiLocal" />
+
+    <EditText
+        android:id="@+id/editTextIdLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="ID del local"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textidlocal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextIdEncarLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="ID encargado"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textVidEntLocal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdLocal" />
+
+    <EditText
+        android:id="@+id/editTextIdUbicLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="ID ubicacion"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textVIdUbiLocal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdEncarLocal" />
+
+    <EditText
+        android:id="@+id/editTextNomLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Nombre del local"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textVNomLocal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdUbicLocal" />
+
+    <Button
+        android:id="@+id/bt_LLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="56dp"
+        android:onClick="limpiarTexto"
+        android:text="@string/Limpiar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomLocal" />
+
+    <Button
+        android:id="@+id/bt_CLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="56dp"
+        android:onClick="consultarLocal"
+        android:text="@string/Consultar"
+        app:layout_constraintStart_toEndOf="@+id/bt_LLocal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomLocal" />
+
+    <Button
+        android:id="@+id/bt_GLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="24dp"
+        android:onClick="insertarLocal"
+        android:text="@string/Guardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_CLocal" />
+
+    <Button
+        android:id="@+id/bt_ALocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="24dp"
+        android:onClick="actualizarLocal"
+        android:text="@string/Actualizar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_GLocal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
