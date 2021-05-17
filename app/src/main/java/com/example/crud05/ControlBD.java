@@ -15,7 +15,9 @@ public class ControlBD{
     private static final String[]camposLocal = new String []{"idlocal", "idencargadolocal", "idubicacion", "nomlocal"};
     private static final String[]camposUbicacion = new String []{"idubicacion","descripcionubicacion"};
     private static final String[]camposEncargadoLocal = new String []{"idencargadolocal", "idusuario", "nomencargado", "apelencargado","telencargado"};
-
+    private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
+    private static final String[]camposPedidoAsignado = new String [] {"idPedidoAsignado","idPedido","idRepartidor"};
+    private static final String[]camposRepartidor = new String [] {"idRepartidor","idLocal","NombreRepartidor","CarnetRepartidor"};
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -37,6 +39,10 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE tipopago(idTipoPago INTEGER NOT NULL PRIMARY KEY,tipoPago VARCHAR(30));");
             db.execSQL("CREATE TABLE producto(idProducto INTEGER NOT NULL PRIMARY KEY,NombreProducto VARCHAR(50),idLocal INTEGER,idProveedor INTEGER);");
             db.execSQL("CREATE TABLE detallepedido(idTipoPago INTEGER NOT NULL ,idProducto INTEGER NOT NULL ,idDetallePedido INTEGER ,cantidad INTEGER,EstadoPedido BOOLEAN ,PRIMARY KEY(idTipoPago,idProducto,idDetallePedido));");
+
+            db.execSQL("CREATE TABLE repartidor(idRepartidor INTEGER NOT NULL PRIMARY KEY,idLocal INTEGER,NombreRepartidor VARCHAR(30), CarnetRepartidor VARCHAR(10));");
+            db.execSQL("CREATE TABLE pedidoasignado(idPedidoAsignado INTEGER NOT NULL PRIMARY KEY,idPedido INTEGER,idRepartidor INTEGER);");
+            db.execSQL("CREATE TABLE pedido(idPedido INTEGER NOT NULL PRIMARY KEY,idLocal INTEGER,idCombo INTEGER, idUsuario INTEGER,idDetallePedido INTEGER,FechaPedido VARCHAR(30));");
 
             db.execSQL("CREATE TABLE ubicacion(idubicacion INTEGER NOT NULL PRIMARY KEY, descripcionubicacion VARCHAR(50));");
             db.execSQL("CREATE TABLE encargadolocal(idencargadolocal INTEGER NOT NULL PRIMARY KEY, idusuario INTEGER NOT NULL, nomencargado VARCHAR(50), apelencargado VARCHAR(50), telencargado VARCHAR(10));");
@@ -492,6 +498,76 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         contador+=db.delete("local", "idlocal='"+local.getIdlocal()+"'", null);
         regAfectados+=contador;
         return regAfectados;
+    }
+
+    public String insertar(Pedido pedido){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues ped = new ContentValues();
+        ped.put("idPedido", pedido.getIdPedido());
+        ped.put("idLocal", pedido.getIdLocal());
+        ped.put("idCombo", pedido.getIdCombo());
+        ped.put("idUsuario", pedido.getIdUsuario());
+        ped.put("idDetallePedido", pedido.getIdDetallePedido());
+        ped.put("FechaPedido", String.valueOf(pedido.getFechaPedido()));
+        contador=db.insert("pedido", null, ped);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public Pedido consultarPedido(String idPedido){
+
+        String[] id = {idPedido};
+        Cursor cursor = db.query("pedido", camposPedido, "idPedido = ?",
+                id, null, null, null);
+        if(cursor.moveToFirst()){
+            Pedido pedido = new Pedido();
+            pedido.setIdPedido(cursor.getInt(0));
+            pedido.setIdLocal(cursor.getInt(1));
+            pedido.setIdCombo(cursor.getInt(2));
+            pedido.setIdUsuario(cursor.getInt(3));
+            pedido.setIdDetallePedido(cursor.getInt(4));
+            pedido.setFechaPedido(cursor.getString(5));
+            return pedido;
+        }else{
+            return null;
+        }
+
+    }
+
+    public String actualizar(Pedido pedido){
+        if(pedido!=null){
+            String[] id = {String.valueOf(pedido.getIdPedido())};
+            ContentValues cv = new ContentValues();
+            cv.put("idPedido", pedido.getIdPedido());
+            cv.put("idLocal", pedido.getIdLocal());
+            cv.put("idCombo", pedido.getIdCombo());
+            cv.put("idUsuario", pedido.getIdUsuario());
+            cv.put("idDetallePedido", pedido.getIdDetallePedido());
+            cv.put("FechaPedido", String.valueOf(pedido.getFechaPedido()));
+            db.update("pedido", cv, "idpedido = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con pedido " + pedido.getIdLocal() + " no existe";
+        }
+    }
+
+    public String eliminar(Pedido pedido){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (pedido!=null) {
+            contador+=db.delete("pedidoasignado", "idPedido='"+pedido.getIdPedido()+"'", null);
+        }
+        contador+=db.delete("pedido", "idPedido='"+pedido.getIdPedido()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
     }
 
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
