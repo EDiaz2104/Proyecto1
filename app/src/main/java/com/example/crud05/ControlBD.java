@@ -10,11 +10,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ControlBD{
     private static final String[]camposTipoPago = new String []{"idTipoPago","tipoPago"};
     private static final String[]camposDetallepedido = new String []{"idDetallePedido","idTipoPago","idProducto","cantidad","EstadoPedido"};
-    private static final String[] camposProducto = new String []{"idProducto","NombreProducto","idLocal","idProveedor"};
+    private static final String[]camposProducto = new String []{"idProducto","NombreProducto","idLocal","idProveedor"};
     private static final String[]camposHorario = new String []{"idhorario","idlocal","dia","apertura","cierre"};
     private static final String[]camposLocal = new String []{"idlocal", "idencargadolocal", "idubicacion", "nomlocal"};
     private static final String[]camposUbicacion = new String []{"idubicacion","descripcionubicacion"};
     private static final String[]camposEncargadoLocal = new String []{"idencargadolocal", "idusuario", "nomencargado", "apelencargado","telencargado"};
+    private static final String[]camposDetalleProducto = new String []{"idDetalleProduc", "idProducto", "cantidadProducto", "precioProducto"};
     private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
     private static final String[]camposPedidoAsignado = new String [] {"idPedidoAsignado","idPedido","idRepartidor"};
     private static final String[]camposRepartidor = new String [] {"idRepartidor","idLocal","NombreRepartidor","CarnetRepartidor"};
@@ -48,7 +49,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE encargadolocal(idencargadolocal INTEGER NOT NULL PRIMARY KEY, idusuario INTEGER NOT NULL, nomencargado VARCHAR(50), apelencargado VARCHAR(50), telencargado VARCHAR(10));");
             db.execSQL("CREATE TABLE local(idlocal INTEGER NOT NULL PRIMARY KEY, idencargadolocal INTEGER NOT NULL, idubicacion INTEGER NOT NULL, nomlocal VARCHAR(50));");
             db.execSQL("CREATE TABLE horario(idhorario INTEGER NOT NULL PRIMARY KEY, idlocal INTEGER NOT NULL, dia VARCHAR(10), apertura VARCHAR(10),cierre VARCHAR(10));");
-
+            db.execSQL("CREATE TABLE detalleproducto(idDetalleProduc INTEGER NOT NULL PRIMARY KEY, idProducto INTEGER NOT NULL, cantidadProducto INTEGER NOT NULL, precioProducto VARCHAR(8));");
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -499,6 +500,71 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         regAfectados+=contador;
         return regAfectados;
     }
+
+    /////////////////////////////////DETALLE///////////////////////////////////
+
+    public String insertarDetalleP(DetalleProducto detalle){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues registro = new ContentValues();
+        registro.put("idDetalleProduc", detalle.getIdDetalleProduc());
+        registro.put("idProducto", detalle.getIdProducto());
+        registro.put("cantidadProducto", detalle.getCantidadProducto());
+        registro.put("precioProducto", detalle.getPrecioProducto());
+        contador=db.insert("detalleproducto", null, registro);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String actualizarDetalleP(DetalleProducto detalle){
+        Integer v_id = detalle.getIdDetalleProduc();        //Pequeño artifisio para convertir el int en string
+        String[] id = {String.valueOf(v_id)};
+        ContentValues registro = new ContentValues();
+        registro.put("idProducto", detalle.getIdProducto());
+        registro.put("cantidadProducto", detalle.getCantidadProducto());
+        registro.put("precioProducto", detalle.getPrecioProducto());
+        int contador = db.update("detalleproducto", registro, "idDetalleProduc = ?", id); //el id solo acepta string
+
+        if(contador == 1){
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con ID " + detalle.getIdDetalleProduc() + " no existe";
+        }
+    }
+
+    public DetalleProducto consultarDetalleP(String idDetalleProduc){
+        String[] id = {idDetalleProduc};
+        Cursor cursor = db.query("detalleproducto", camposDetalleProducto, "idDetalleProduc = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            DetalleProducto detalle = new DetalleProducto();
+            detalle.setIdDetalleProduc(cursor.getInt(0));
+            detalle.setIdProducto(cursor.getInt(1));
+            detalle.setCantidadProducto(cursor.getInt(2));
+            detalle.setPrecioProducto(cursor.getString(3));
+            return detalle;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarDetalleP(DetalleProducto detalle){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        //if (verificarIntegridad(hora,3)) {
+        //    contador+=db.delete("nota", "carnet='"+hora.getidubicacion()+"'", null);
+        //}
+        contador+=db.delete("detalleproducto", "idDetalleProduc='"+detalle.getIdDetalleProduc()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
+
+    /////////////////////////////////FIN///////////////////////////////////
 
     public String insertar(Pedido pedido){
         String regInsertados="Registro Insertado Nº= ";

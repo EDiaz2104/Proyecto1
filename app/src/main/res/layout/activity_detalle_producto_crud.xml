@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleProductoCrudActivity">
+
+    <EditText
+        android:id="@+id/et_precioUniDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Precio unitario"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tv_precioUniDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/et_cantidDetalleProc" />
+
+    <TextView
+        android:id="@+id/tv_idDetalleProduc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="32dp"
+        android:text="ID:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_idProDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
+        android:text="ID Producto:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_idDetalleProduc" />
+
+    <TextView
+        android:id="@+id/tv_cantidadDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="44dp"
+        android:text="Cantidad:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_idProDetalle" />
+
+    <TextView
+        android:id="@+id/tv_precioUniDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="Precio unitario:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cantidadDetalle" />
+
+    <EditText
+        android:id="@+id/et_idDetalleProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Id detalle Producto"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tv_idDetalleProduc"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_idProdDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Id producto"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tv_idProDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/et_idDetalleProducto" />
+
+    <EditText
+        android:id="@+id/et_cantidDetalleProc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Cantidad de produc"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tv_cantidadDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/et_idProdDetalle" />
+
+    <Button
+        android:id="@+id/bt_LDetalleProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="40dp"
+        android:onClick="limpiarTexto"
+        android:text="@string/Limpiar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_precioUniDetalle" />
+
+    <Button
+        android:id="@+id/bt_CDetalleProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="24dp"
+        android:onClick="consultarDetalleP"
+        android:text="@string/Consultar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_LDetalleProducto" />
+
+    <Button
+        android:id="@+id/bt_GDetalleProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="40dp"
+        android:onClick="insertarDetalleP"
+        android:text="@string/Guardar"
+        app:layout_constraintStart_toEndOf="@+id/bt_LDetalleProducto"
+        app:layout_constraintTop_toBottomOf="@+id/et_precioUniDetalle" />
+
+    <Button
+        android:id="@+id/bt_ADetalleProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:onClick="actualizarDetalleP"
+        android:text="@string/Actualizar"
+        app:layout_constraintStart_toEndOf="@+id/bt_CDetalleProducto"
+        app:layout_constraintTop_toBottomOf="@+id/bt_GDetalleProducto" />
+
+    <Button
+        android:id="@+id/bt_EDetalleProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="24dp"
+        android:onClick="eliminarDetalleP"
+        android:text="@string/Eliminar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_ADetalleProducto" />
+</androidx.constraintlayout.widget.ConstraintLayout>

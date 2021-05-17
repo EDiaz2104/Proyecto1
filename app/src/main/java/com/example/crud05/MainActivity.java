@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
-    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado"};
-    String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","HorarioMenuActivity","EncargadoLocalMenuActivity","UbicacionMenuActivity","PedidoMenuActivity","RepartidorMenuActivity","PedidoAsignadoMenuActivity"};
+    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado","Tabla Detalle Productos","LLenar Base de datos"}; //No borrar el llenar base
+    String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","HorarioMenuActivity","EncargadoLocalMenuActivity","UbicacionMenuActivity","PedidoMenuActivity","RepartidorMenuActivity","PedidoAsignadoMenuActivity","DetalleProductoCrudActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends ListActivity {
             }
         }else{
             //CODIGO PARA LLENAR BASE DE DATOS
+            Toast.makeText(this, "Ups!! falta esta funcion", Toast.LENGTH_SHORT).show();
         }
     }
 }
