@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Crud05</string>
+    <string name="app_name">Control de cafetin UES</string>
     <string name="title_activity_tipo_pago">TipoPagoActivity</string>
     <string name="title_activity_detalle_pedido">DetallePedidoActivity</string>
     <string name="title_activity_producto">ProductoActivity</string>
