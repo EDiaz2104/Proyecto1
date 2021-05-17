@@ -620,7 +620,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             db.update("pedido", cv, "idpedido = ?", id);
             return "Registro Actualizado Correctamente";
         }else{
-            return "Registro con pedido " + pedido.getIdLocal() + " no existe";
+            return "Registro con pedido " + pedido.getIdPedido() + " no existe";
         }
     }
 
@@ -628,7 +628,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         String regAfectados="filas afectadas= ";
         int contador=0;
         if (pedido!=null) {
-            contador+=db.delete("pedidoasignado", "idPedido='"+pedido.getIdPedido()+"'", null);
+            contador+=db.delete("pedido", "idPedido='"+pedido.getIdPedido()+"'", null);
         }
         contador+=db.delete("pedido", "idPedido='"+pedido.getIdPedido()+"'", null);
         regAfectados+=contador;
@@ -653,6 +653,51 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             regInsertados=regInsertados+contador;
         }
         return regInsertados;
+    }
+
+    public String actualizar(Repartidor repartidor){
+        if(repartidor!=null){
+            String[] id = {String.valueOf(repartidor.getIdRepartidor())};
+            ContentValues cv = new ContentValues();
+            cv.put("idRepartidor", repartidor.getIdRepartidor());
+            cv.put("idLocal", repartidor.getIdLocal());
+            cv.put("NombreRepartidor", repartidor.getNombreRepartidor());
+            cv.put("CarnetRepartidor", repartidor.getCarnetRepartidor());
+            db.update("repartidor", cv, "idRepartidor = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Repartidor " + repartidor.getIdRepartidor() + " no existe";
+        }
+    }
+
+    public Repartidor consultarRepartidor(String idRepartidor){
+
+        String[] id = {idRepartidor};
+        Cursor cursor = db.query("repartidor", camposRepartidor, "idRepartidor = ?",
+                id, null, null, null);
+        if(cursor.moveToFirst()){
+            Repartidor repartidor= new Repartidor();
+            repartidor.setIdRepartidor(cursor.getInt(0));
+            repartidor.setIdLocal(cursor.getInt(1));
+            repartidor.setNombreRepartidor(cursor.getString(2));
+            repartidor.setCarnetRepartidor(cursor.getString(3));
+            return repartidor;
+        }else{
+            return null;
+        }
+
+    }
+
+    public String eliminar(Repartidor repartidor){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (repartidor!=null) {
+            contador+=db.delete("repartidor", "idRepartidor='"+repartidor.getIdRepartidor()+"'", null);
+        }
+        contador+=db.delete("repartidor", "idRepartidor='"+repartidor.getIdRepartidor()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
     }
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){

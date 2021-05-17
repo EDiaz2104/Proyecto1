@@ -53,6 +53,7 @@
         <activity android:name=".PedidoAsignadoConsultarActivity" />
         <activity android:name=".PedidoAsignadoActualizarActivity" />
         <activity android:name=".PedidoAsignadoEliminarActivity" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

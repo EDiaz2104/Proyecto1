@@ -11,7 +11,7 @@ import android.widget.ListView;
 public class RepartidorMenuActivity extends ListActivity {
 
     String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro","Actualizar Registro"};
-    String[] activities={"RepartidorInsertarActivity","RepartidorEliminarActivity","RepartidorConsultarActivity", "RepartidorActualizarActivity"};
+    String[] activities={"RepartidorInsertatActivity","RepartidorEliminarActivity","RepartidorConsultarActivity", "RepartidorActualizarActivity"};
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

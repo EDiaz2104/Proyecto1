@@ -14,6 +14,8 @@ public class PedidoEliminarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido_eliminar);
+        editIdPedido=(EditText)findViewById(R.id.editIdPedido);
+        helper=new ControlBD (this);
     }
 
     public void eliminarPedido(View v){
