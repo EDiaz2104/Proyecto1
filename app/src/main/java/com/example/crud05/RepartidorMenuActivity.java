@@ -10,10 +10,8 @@ import android.widget.ListView;
 
 public class RepartidorMenuActivity extends ListActivity {
 
-    String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro",
-            "Actualizar Registro"};
-    String[]
-            activities={"RepartidorInsertarActivity","RepartidorEliminarActivity","RepartidorConsultarActivity", "RepartidorActualizarActivity"};
+    String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro","Actualizar Registro"};
+    String[] activities={"RepartidorInsertarActivity","RepartidorEliminarActivity","RepartidorConsultarActivity", "RepartidorActualizarActivity"};
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +19,6 @@ public class RepartidorMenuActivity extends ListActivity {
                 menu));
 
         ListView listView = getListView();
-        listView.setBackgroundColor(Color.rgb(0, 128, 64));
         ArrayAdapter<String> adapter = new
                 ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
@@ -33,10 +30,10 @@ public class RepartidorMenuActivity extends ListActivity {
 
         String nombreValue=activities[position];
 
-        l.getChildAt(position).setBackgroundColor(Color.rgb(0, 128, 64));
+
 
         try{
-            Class<?> clase=Class.forName("sv.ues.edu.fia.eisi.basedatosdc13018."+nombreValue);
+            Class<?> clase=Class.forName("com.example.crud05."+nombreValue);
             Intent inte = new Intent(this,clase);
             this.startActivity(inte);
         }catch(ClassNotFoundException e){

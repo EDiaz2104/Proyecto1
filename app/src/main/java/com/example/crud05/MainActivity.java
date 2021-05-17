@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
-    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado","LLenar Base de Datos"};
+    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado"};
     String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","HorarioMenuActivity","EncargadoLocalMenuActivity","UbicacionMenuActivity","PedidoMenuActivity","RepartidorMenuActivity","PedidoAsignadoMenuActivity"};
 
     @Override
@@ -16,20 +16,18 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, menu));
-
     }
 
     @Override
     protected void onListItemClick(ListView l,View v,int position,long id){
         super.onListItemClick(l, v, position, id);
 
-        if(position!=7){   //SE TIENE QUE CAMBIAR EL NUMERO
+        if(position!=activities.length){   //SE TIENE QUE CAMBIAR EL NUMERO
 
             String nombreValue=activities[position];
 
             try{
-                Class<?>
-                        clase=Class.forName("com.example.crud05."+nombreValue);
+                Class<?> clase=Class.forName("com.example.crud05."+nombreValue);
                 Intent inte = new Intent(this,clase);
                 this.startActivity(inte);
             }catch(ClassNotFoundException e){

@@ -37,6 +37,21 @@
         <activity android:name=".ProductoActivity" />
         <activity android:name=".DetallePedidoActivity" />
         <activity android:name=".TipoPagoActivity" />
+        <activity android:name=".PedidoMenuActivity" />
+        <activity android:name=".PedidoAsignadoMenuActivity" />
+        <activity android:name=".RepartidorMenuActivity" />
+        <activity android:name=".RepartidorInsertatActivity"/>
+        <activity android:name=".RepartidorActualizarActivity"/>
+        <activity android:name=".RepartidorConsultarActivity"/>
+        <activity android:name=".RepartidorEliminarActivity"/>
+        <activity android:name=".PedidoConsultarActivity"/>
+        <activity android:name=".PedidoActualizarActivity"/>
+        <activity android:name=".PedidoInsertarActivity"/>
+        <activity android:name=".PedidoEliminarActivity"/>
+        <activity android:name=".PedidoAsignadoInsertarActivity"/>
+        <activity android:name=".PedidoAsignadoConsultarActivity"/>
+        <activity android:name=".PedidoAsignadoActualizarActivity"/>
+        <activity android:name=".PedidoAsignadoEliminarActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,33 +11,31 @@ import android.widget.ListView;
 public class PedidoMenuActivity extends ListActivity {
 
     String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro", "Actualizar Registro"};
-    String[]
-            activities={"PedidoInsertarActivity","PedidoEliminarActivity","PedidoConsultarActivity", "PedidoActualizarActivity"};
+    String[] activities={"PedidoInsertarActivity","PedidoEliminarActivity","PedidoConsultarActivity", "PedidoActualizarActivity"};
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ListView listView = getListView();
-        listView.setBackgroundColor(Color.rgb(0, 0, 255));
+
         ArrayAdapter<String> adapter = new
                 ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
     }
 
-
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id){
+    protected void onListItemClick(ListView l,View v,int position,long id){
         super.onListItemClick(l, v, position, id);
 
         String nombreValue=activities[position];
 
-        l.getChildAt(position).setBackgroundColor(Color.rgb(128, 128, 255));
-
         try{
-            Class<?> clase=Class.forName("sv.ues.edu.fia.eisi.proyecto2dc."+nombreValue);
+            Class<?> clase=Class.forName("com.example.crud05."+nombreValue);
             Intent inte = new Intent(this,clase);
             this.startActivity(inte);
         }catch(ClassNotFoundException e){
             e.printStackTrace();
         }
+
     }
 }

@@ -16,7 +16,7 @@ public class DetallePedidoActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ListView listView = getListView();
-        listView.setBackgroundColor(Color.rgb(0, 0, 255));
+
         ArrayAdapter<String> adapter = new
                 ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
@@ -29,7 +29,7 @@ public class DetallePedidoActivity extends ListActivity {
 
         String nombreValue=activities[position];
 
-        l.getChildAt(position).setBackgroundColor(Color.rgb(128, 128, 255));
+
 
         try{
             Class<?> clase=Class.forName("com.example.crud05."+nombreValue);

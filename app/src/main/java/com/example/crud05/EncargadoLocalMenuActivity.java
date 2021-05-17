@@ -17,7 +17,7 @@ public class EncargadoLocalMenuActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ListView listView = getListView();
-        listView.setBackgroundColor(Color.rgb(0, 0, 255));
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
     }
@@ -26,7 +26,7 @@ public class EncargadoLocalMenuActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id){
         super.onListItemClick(l, v, position, id);
         String nombreValue=activities[position];
-        l.getChildAt(position).setBackgroundColor(Color.rgb(128, 128, 255));
+
         try{
             Class<?> clase=Class.forName("com.example.crud05."+nombreValue);
             Intent inte = new Intent(this,clase);
