@@ -27,17 +27,17 @@ public class DetallePedidoInsertarActivity extends Activity {
     }
     public void insertarDetallePedido(View v) {
         String regInsertados;
-        String idDetallepedido=editidDetallePedido.getText().toString();
-        String idTipoPago=editidTipoPago.getText().toString();
-        String idProducto=editidProducto.getText().toString();
+        Integer idDetallepedido= Integer.valueOf(editidDetallePedido.getText().toString());
+        Integer idTipoPago= Integer.valueOf(editidTipoPago.getText().toString());
+        Integer idProducto= Integer.valueOf(editidProducto.getText().toString());
         String cantidad=editcantidad.getText().toString();
-        String EstadoPedido = editEstadoPedido.getText().toString();
+        Boolean EstadoPedido = Boolean.valueOf(editEstadoPedido.getText().toString());
         DetallePedido detalle= new DetallePedido();
-        detalle.setIdTipoPago(idTipoPago);
-        detalle.setIdProducto(idProducto);
-        detalle.setIdDetallePedido(idDetallepedido);
+        detalle.setIdTipoPago(String.valueOf(idTipoPago));
+        detalle.setIdProducto(String.valueOf(idProducto));
+        detalle.setIdDetallePedido(String.valueOf(idDetallepedido));
         detalle.setCantidad(cantidad);
-        detalle.setEstadoPedido(EstadoPedido);
+        detalle.setEstadoPedido(String.valueOf(EstadoPedido));
         helper.abrir();
         regInsertados=helper.insertar(detalle);
         helper.cerrar();

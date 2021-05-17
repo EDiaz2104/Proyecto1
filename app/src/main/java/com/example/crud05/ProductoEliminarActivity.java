@@ -28,7 +28,7 @@ public class ProductoEliminarActivity extends Activity {
     public void eliminarProducto(View v){
         String regEliminadas;
         Producto pro=new Producto();
-        pro.setIdProducto(editidProducto.getId());
+        pro.setIdProducto(Integer.valueOf(editidProducto.getText().toString()));
         controlhelper.abrir();
         regEliminadas=controlhelper.eliminar(pro);
         controlhelper.cerrar();

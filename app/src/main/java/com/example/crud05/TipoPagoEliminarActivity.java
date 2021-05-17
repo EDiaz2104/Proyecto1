@@ -21,7 +21,7 @@ public class TipoPagoEliminarActivity extends Activity {
     public void eliminarTipoPago(View v){
         String regEliminadas;
         TipoPago tipopago=new TipoPago();
-        tipopago.setIdTipoPago(editidTipoPago.getId());
+        tipopago.setIdTipoPago(Integer.parseInt(editidTipoPago.getText().toString()));
         controlhelper.abrir();
         regEliminadas=controlhelper.eliminar(tipopago);
         controlhelper.cerrar();

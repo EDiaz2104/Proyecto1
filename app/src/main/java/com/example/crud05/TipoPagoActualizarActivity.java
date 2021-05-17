@@ -23,7 +23,7 @@ public class TipoPagoActualizarActivity extends Activity {
     }
     public void actualizarTipoPago(View v) {
         TipoPago tipopago = new TipoPago();
-        tipopago.setIdTipoPago(editidTipoPago.getId());
+        tipopago.setIdTipoPago(Integer.parseInt(editidTipoPago.getText().toString()));
         tipopago.setTipoPago(edittipoPago.getText().toString());
         helper.abrir();
         String estado = helper.actualizar(tipopago);

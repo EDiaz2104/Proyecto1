@@ -24,16 +24,16 @@ public class ProductoInsertarActivity extends Activity {
         editidProveedor = (EditText) findViewById(R.id.editidProveedor);
     }
     public void insertarProducto(View v) {
-        int idProducto=editidProducto.getId();
+        Integer idProducto= Integer.valueOf(editidProducto.getText().toString());
         String NombreProducto=editNombreProducto.getText().toString();
-        String idLocal=editidLocal.getText().toString();
-        String idProveedor=editidProveedor.getText().toString();
+        Integer idLocal= Integer.valueOf(editidLocal.getText().toString());
+        Integer idProveedor= Integer.valueOf(editidProveedor.getText().toString());
         String regInsertados;
         Producto pro=new Producto();
         pro.setIdProducto(idProducto);
         pro.setNombreProducto(NombreProducto);
-        pro.setIdLocal(idLocal);
-        pro.setIdProveedor(idProveedor);
+        pro.setIdLocal(String.valueOf(idLocal));
+        pro.setIdProveedor(String.valueOf(idProveedor));
         helper.abrir();
         regInsertados=helper.insertar(pro);
         helper.cerrar();

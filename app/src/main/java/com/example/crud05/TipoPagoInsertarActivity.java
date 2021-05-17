@@ -9,19 +9,19 @@ import android.widget.Toast;
 public class TipoPagoInsertarActivity extends Activity {
 
     ControlBD helper;
-   EditText editidTipoPago;
+    EditText editidTipoPago;
     EditText edittipoPago;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_pago_insertar);
         helper = new ControlBD(this);
-        //editidTipoPago = (EditText) findViewById(R.id.editidTipoPago);
+        editidTipoPago = (EditText) findViewById(R.id.editidTipoPago);
         edittipoPago = (EditText) findViewById(R.id.edittipoPago);
 
     }
     public void insertarTipoPago(View v) {
-        Integer idTipoPago=editidTipoPago.getId();
+        Integer idTipoPago= Integer.valueOf(editidTipoPago.getText().toString());
         String tipoPago=edittipoPago.getText().toString();
         String regInsertados;
         TipoPago tipo=new TipoPago();

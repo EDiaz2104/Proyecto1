@@ -12,9 +12,9 @@
              />
     </TableRow>
     <TableRow>
-        <TextView android:text="@string/tipoPago"/>
+        <TextView android:text="@string/idTipoPago"/>
         <EditText
-            android:id="@+id/edittipoPago"
+            android:id="@+id/editidTipoPago"
             android:inputType="text"
              />
     </TableRow>
