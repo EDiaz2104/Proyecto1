@@ -9,16 +9,91 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".Menus.UsuarioMenuActivity"></activity>
-        <activity android:name=".Menus.PreferencialMenuActivity" />
-        <activity android:name=".Preferencial.PreferencialDeleteActivity" />
-        <activity android:name=".Preferencial.PreferencialUpdateActivity" />
-        <activity android:name=".Preferencial.PreferencialReadActivity" />
-        <activity android:name=".Preferencial.PreferencialCreateActivity" />
-        <activity android:name=".Usuario.UsuarioDeleteActivity" />
-        <activity android:name=".Usuario.UsuarioUpdateActivity" />
-        <activity android:name=".Usuario.UsuarioReadActivity" />
-        <activity android:name=".Usuario.UsuarioCreateActivity" />
+
+        <!-- Menus -->
+        <activity android:name=".Menus.UsuarioMenuActivity"
+            android:parentActivityName=".MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".Menus.PreferencialMenuActivity"
+            android:parentActivityName=".MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <!-- CRUD Preferencial -->
+        <activity android:name=".Preferencial.PreferencialDeleteActivity"
+            android:parentActivityName=".Menus.PreferencialMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.PreferencialMenuActivity" />
+        </activity>
+        <activity android:name=".Preferencial.PreferencialUpdateActivity"
+            android:parentActivityName=".Menus.PreferencialMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.PreferencialMenuActivity" />
+        </activity>
+        <activity android:name=".Preferencial.PreferencialReadActivity"
+            android:parentActivityName=".Menus.PreferencialMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.PreferencialMenuActivity" />
+        </activity>
+        <activity android:name=".Preferencial.PreferencialCreateActivity"
+            android:parentActivityName=".Menus.PreferencialMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.PreferencialMenuActivity" />
+        </activity>
+        <!-- CRUD Usuario -->
+        <activity android:name=".Usuario.UsuarioDeleteActivity"
+            android:parentActivityName=".Menus.UsuarioMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.UsuarioMenuActivity" />
+        </activity>
+        <activity android:name=".Usuario.UsuarioUpdateActivity"
+            android:parentActivityName=".Menus.UsuarioMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.UsuarioMenuActivity" />
+        </activity>
+        <activity android:name=".Usuario.UsuarioReadActivity"
+            android:parentActivityName=".Menus.UsuarioMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.UsuarioMenuActivity" />
+        </activity>
+        <activity android:name=".Usuario.UsuarioCreateActivity"
+            android:parentActivityName=".Menus.UsuarioMenuActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menus.UsuarioMenuActivity" />
+        </activity>
+
         <activity android:name=".DetalleProductoCrudActivity" />
         <activity android:name=".HorarioEliminarConsultarActivity" />
         <activity android:name=".HorarioActualizarActivity" />
