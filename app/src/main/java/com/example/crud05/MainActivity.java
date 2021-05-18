@@ -9,8 +9,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
-    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado","Tabla Detalle Productos","LLenar Base de datos"}; //No borrar el llenar base
-    String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","HorarioMenuActivity","EncargadoLocalMenuActivity","UbicacionMenuActivity","PedidoMenuActivity","RepartidorMenuActivity","PedidoAsignadoMenuActivity","DetalleProductoCrudActivity"};
+    String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Horario","Tabla Encargado local","Tabla Ubicacion","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado","Tabla Detalle Productos","Tabla Categoria","LLenar Base de datos"}; //No borrar el llenar base
+    String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","HorarioMenuActivity","EncargadoLocalMenuActivity","UbicacionMenuActivity","PedidoMenuActivity","RepartidorMenuActivity","PedidoAsignadoMenuActivity","DetalleProductoCrudActivity","CategoriaMenuActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

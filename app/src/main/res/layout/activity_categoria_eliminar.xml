@@ -7,9 +7,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Id Pedido Asignado" />
+        android:text="Id Categoria" />
     <EditText
-        android:id="@+id/editIdPedidoAsignado"
+        android:id="@+id/editIdCategoria"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
@@ -18,5 +18,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eliminar"
-        android:onClick="eliminarPedidoAsignado"/>
+        android:onClick="eliminarCategoria"/>
 </LinearLayout>

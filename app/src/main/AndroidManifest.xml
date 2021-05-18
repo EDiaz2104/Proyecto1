@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
 
+
         <!-- Menus -->
         <activity android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">
@@ -93,6 +94,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.UsuarioMenuActivity" />
         </activity>
+
+
+        <activity android:name=".CategoriaEliminarActivity"></activity>
+        <activity android:name=".CategoriaConsultarActivity" />
+        <activity android:name=".CategoriaActualizarActivity" />
+        <activity android:name=".CategoriaInsertarActivity" />
+        <activity android:name=".CategoriaMenuActivity" />
 
         <activity android:name=".DetalleProductoCrudActivity" />
         <activity android:name=".HorarioEliminarConsultarActivity" />
