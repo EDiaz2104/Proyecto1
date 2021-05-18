@@ -782,7 +782,48 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         }
         return regInsertados;
     }
+    public String actualizar(PedidoAsignado pedidoasignado){
+        if(pedidoasignado!=null){
+            String[] id = {String.valueOf(pedidoasignado.getIdPedido())};
+            ContentValues cv = new ContentValues();
+            cv.put("idPedidoAsignado", pedidoasignado.getIdPedidoAsignado());
+            cv.put("idPedido", pedidoasignado.getIdPedido());
+            cv.put("idRepartidor", pedidoasignado.getIdRepartidor());
+            db.update("pedidoasignado", cv, "idPedidoAsignado = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Pedido Asignado " + pedidoasignado.getIdPedidoAsignado() + " no existe";
+        }
+    }
 
+    public String eliminar(PedidoAsignado pedidoasignado){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (pedidoasignado!=null) {
+            contador+=db.delete("pedidoasignado", "idPedidoAsignado='"+pedidoasignado.getIdPedidoAsignado()+"'", null);
+        }
+        contador+=db.delete("pedidoasignado", "idPedidoAsignado='"+pedidoasignado.getIdPedidoAsignado()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
+    }
+
+    public PedidoAsignado consultarPedidoAsignado(String idPedidoAsignado){
+
+        String[] id = {idPedidoAsignado};
+        Cursor cursor = db.query("pedidoasignado", camposPedidoAsignado, "idPedidoAsignado = ?",
+                id, null, null, null);
+        if(cursor.moveToFirst()){
+            PedidoAsignado pedidoAsignado= new PedidoAsignado();
+            pedidoAsignado.setIdPedidoAsignado(cursor.getInt(0));
+            pedidoAsignado.setIdPedido(cursor.getInt(1));
+            pedidoAsignado.setIdRepartidor(cursor.getInt(2));
+            return pedidoAsignado;
+        }else{
+            return null;
+        }
+
+    }
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){
         case 1:
