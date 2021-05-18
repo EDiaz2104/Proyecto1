@@ -47,4 +47,15 @@
     <string name="Actualizar">Actualizar</string>
     <string name="Eliminar">Eliminar</string>
     <string name="Limpiar">Limpiar</string>
+    <string name="title_usuario_crear">Crear Usuario</string>
+    <string name="title_usuario_eliminar">Eliminar Usuario</string>
+    <string name="title_usuario_consultar">Consultar Usuario</string>
+    <string name="title_usuario_actualizar">Actualizar Usuario</string>
+    <string name="title_preferencial_crear">Crear Preferencial</string>
+    <string name="title_preferencial_actualizar">Actualizar Preferencial</string>
+    <string name="title_preferencial_eliminar">Eliminar Preferencial</string>
+    <string-array name="estados_usuario">
+        <item>Activo</item>
+        <item>Inactivo</item>
+    </string-array>
 </resources>
