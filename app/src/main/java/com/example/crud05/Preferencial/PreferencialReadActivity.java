@@ -35,8 +35,8 @@ public class PreferencialReadActivity extends AppCompatActivity {
                 "Preferencial con id "+ edit_idPreferencial.getText().toString() + " no encontrado",
                 Toast.LENGTH_LONG).show();
         else{
-            edit_idLocal.setText(preferencial.getIdLocal());
-            edit_idUsuario.setText(preferencial.getIdUsuario());
+            edit_idLocal.setText(String.valueOf(preferencial.getIdLocal()));
+            edit_idUsuario.setText(String.valueOf(preferencial.getIdUsuario()));
         }
     }
     public void limpiarTexto(View v){
