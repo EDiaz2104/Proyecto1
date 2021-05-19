@@ -22,9 +22,25 @@ public class ControlBD{
     private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
     private static final String[]camposPedidoAsignado = new String [] {"idPedidoAsignado","idPedido","idRepartidor"};
     private static final String[]camposRepartidor = new String [] {"idRepartidor","idLocal","NombreRepartidor","CarnetRepartidor"};
+
+    private static final String[] campos_usuario = new String[] {
+            "idusuario",
+            "nombreUsuario",
+            "apelUsuario",
+            "telUsuario",
+            "direccionUsuario",
+            "estadoUsuario",
+            "emailUsuario",
+            "claveUsuario"
+    };
+    private static final String[] campos_preferencial = new String[] {
+            "idPreferencial",
+            "idUsuario",
+            "idLocal"
+    };
+
     private static final String[]camposCategoria = new String [] {"idCategoria","idProducto","NombreCategoria","DescripcionCategoria"};
-    private static final String[] campos_usuario = new String[] {"idusuario", "nombreUsuario", "apelUsuario", "telUsuario", "direccionUsuario", "estadoUsuario", "emailUsuario", "claveUsuario"};
-    private static final String[] campos_preferencial = new String[] {"idPreferencial", "idUsuario", "idLocal"};
+
 
     private final Context context;
     private DatabaseHelper DBHelper;

@@ -13,13 +13,13 @@ import android.widget.ListView;
 import com.example.crud05.R;
 
 public class UsuarioMenuActivity extends ListActivity {
-    String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro", "Actualizar Registro"};
-    String[] activities={"UsuarioCreateActivity","UsuarioUpdateActivity","UsuarioReadActivity", "UsuarioDeleteActivity"};
+    String[] menu={"Insertar Registro","Actualizar Registro","Consultar Registro", "Eliminar Registro"};
+    String[] activities={"Usuario.UsuarioCreateActivity","Usuario.UsuarioUpdateActivity","Usuario.UsuarioReadActivity", "Usuario.UsuarioDeleteActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usuario_menu);
+
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
         ListView listView = getListView();
         //listView.setBackgroundColor(Color.rgb(64, 0, 128));
@@ -34,7 +34,7 @@ public class UsuarioMenuActivity extends ListActivity {
         String nombreValue = activities[position];
         //l.getChildAt(position).setBackgroundColor(Color.rgb(255, 128, 0));
         try {
-            Class<?> clase = Class.forName("com.example.crud05.Usuario." + nombreValue);
+            Class<?> clase = Class.forName("com.example.crud05." + nombreValue);
             Intent inte = new Intent(this, clase);
             this.startActivity(inte);
         } catch (ClassNotFoundException e) {
