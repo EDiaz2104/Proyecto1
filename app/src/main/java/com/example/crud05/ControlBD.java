@@ -269,8 +269,8 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             Producto product = new Producto();
             product.setIdProducto(cursor.getInt(0));
             product.setNombreProducto(cursor.getString(1));
-            //product.setIdLocal(cursor.getInt(2));
-           //product.setIdProveedor(cursor.getInt(3));
+            product.setIdLocal(cursor.getInt(2));
+            product.setIdProveedor(cursor.getInt(3));
             return product;
         }else{
             return null;

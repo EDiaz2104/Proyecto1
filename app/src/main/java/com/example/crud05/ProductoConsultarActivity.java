@@ -36,15 +36,15 @@ public class ProductoConsultarActivity extends Activity {
                     " no encontrado", Toast.LENGTH_LONG).show();
         else{
             editNombreProducto.setText(p.getNombreProducto());
-           // editidLocal.setText(p.getIdLocal());
-            //editidProveedor.setText(p.getIdProveedor());
+            editidLocal.setText(Integer.valueOf(p.getIdLocal()));
+            editidProveedor.setText(Integer.valueOf(p.getIdProveedor()));
         }
     }
     public void limpiarTexto(View v){
         editidProducto.setText("");
         editNombreProducto.setText("");
-       // editidLocal.setText("");
-        //editidProveedor.setText("");
+        editidLocal.setText("");
+         editidProveedor.setText("");
 
     }
 }
