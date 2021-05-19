@@ -24,6 +24,7 @@ public class DetallePedidoActualizarActivity extends Activity {
         editidProducto = (EditText) findViewById(R.id.editidProducto);
         editidDetallePedido = (EditText) findViewById(R.id.editidDetallePedido);
         editcantidad = (EditText) findViewById(R.id.editcantidad);
+
         editEstadoPedido  = (Spinner) findViewById(R.id.editEstadoPedido);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.estados_pedido, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

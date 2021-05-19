@@ -19,23 +19,23 @@ public class DetallePedidoInsertarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_pedido_insertar);
         helper = new ControlBD(this);
+        editidDetallePedido = (EditText) findViewById(R.id.editidDetallePedido);
         editidTipoPago = (EditText) findViewById(R.id.editidTipoPago);
         editidProducto = (EditText) findViewById(R.id.editidProducto);
-        editidDetallePedido = (EditText) findViewById(R.id.editidDetallePedido);
         editcantidad = (EditText) findViewById(R.id.editcantidad);
 
     }
     public void insertarDetallePedido(View v) {
         String regInsertados;
-        int idDetallepedido= Integer.valueOf(editidDetallePedido.getText().toString());
+        int idDetallePedido= Integer.valueOf(editidDetallePedido.getText().toString());
         int idTipoPago= Integer.valueOf(editidTipoPago.getText().toString());
         int idProducto= Integer.valueOf(editidProducto.getText().toString());
         int cantidad= Integer.parseInt(editcantidad.getText().toString());
 
         DetallePedido detalle= new DetallePedido();
+        detalle.setIdDetallePedido(idDetallePedido);
         detalle.setIdTipoPago(idTipoPago);
         detalle.setIdProducto(idProducto);
-        detalle.setIdDetallePedido(idDetallepedido);
         detalle.setCantidad(cantidad);
         detalle.setEstadoPedido(1);
         helper.abrir();

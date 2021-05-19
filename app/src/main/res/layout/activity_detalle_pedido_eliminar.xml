@@ -5,33 +5,6 @@
     android:stretchColumns="1"
     android:paddingTop="4dip"
     >
-
-    <!--<TableRow >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idTipoPago"/>
-        <EditText
-            android:id="@+id/editidTipoPago"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-           />
-    </TableRow>
-
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idProducto"/>
-        <EditText
-            android:id="@+id/editidProducto"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            />
-    </TableRow>-->
-
     <TableRow>
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +14,7 @@
             android:id="@+id/editidDetallePedido"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="text"
             />
     </TableRow>
 
