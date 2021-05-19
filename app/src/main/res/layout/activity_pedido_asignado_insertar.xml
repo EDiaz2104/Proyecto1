@@ -33,7 +33,7 @@
     </TableRow>
     <TableRow>
         <Button
-            android:onClick="insertarRepartidor"
+            android:onClick="insertarAsignadoPedido"
             android:text="@string/insertar" />
         <Button
             android:onClick="limpiarTexto"

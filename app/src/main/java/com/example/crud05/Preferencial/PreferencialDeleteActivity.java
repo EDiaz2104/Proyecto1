@@ -26,7 +26,7 @@ public class PreferencialDeleteActivity extends AppCompatActivity {
     public void eliminarPreferencial(View v){
         String regEliminadas;
         Preferencial preferencial = new Preferencial();
-        preferencial.setIdUsuario(Integer.parseInt(edit_idPreferencial.getText().toString()));
+        preferencial.setIdPreferencial(Integer.parseInt(edit_idPreferencial.getText().toString()));
         helper.abrir();
         regEliminadas=helper.eliminar(preferencial);
         helper.cerrar();

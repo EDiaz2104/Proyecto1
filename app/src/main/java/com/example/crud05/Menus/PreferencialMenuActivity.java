@@ -13,7 +13,7 @@ import android.widget.ListView;
 import com.example.crud05.R;
 
 public class PreferencialMenuActivity extends ListActivity {
-    String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro", "Actualizar Registro"};
+    String[] menu={"Insertar Registro", "Actualizar Registro","Consultar Registro","Eliminar Registro"};
     String[] activities={"Preferencial.PreferencialCreateActivity","Preferencial.PreferencialUpdateActivity","Preferencial.PreferencialReadActivity", "Preferencial.PreferencialDeleteActivity"};
 
     @Override
