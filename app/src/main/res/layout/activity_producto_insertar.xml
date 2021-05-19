@@ -7,7 +7,7 @@
     <TableRow>
         <TextView android:text="@string/idProducto"/>
         <EditText
-            android:id="@+id/editCodmateria"
+            android:id="@+id/editidProducto"
             android:inputType="text"
              />
     </TableRow>

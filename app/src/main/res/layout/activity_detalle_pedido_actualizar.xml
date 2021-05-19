@@ -4,14 +4,19 @@
     android:layout_height="wrap_content"
     android:paddingTop="10dip"
     android:stretchColumns="1" >
+
     <TableRow>
-
+        <TextView android:text="@string/idDetallePedido" />
+        <EditText
+            android:id="@+id/editidDetallePedido"
+            android:inputType="text"
+            />
+    </TableRow>
+    <TableRow>
         <TextView android:text="@string/idTipoPago" />
-
         <EditText
             android:id="@+id/editidTipoPago"
-            android:inputType="text"
-             />
+            android:inputType="text" />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/idProducto" />
@@ -21,27 +26,26 @@
              />
     </TableRow>
     <TableRow>
-        <TextView android:text="@string/idDetallePedido" />
-        <EditText
-            android:id="@+id/editidDetallePedido"
-            android:inputType="text"
-             />
-    </TableRow>
-    <TableRow>
         <TextView android:text="@string/cantidad" />
         <EditText
             android:id="@+id/editcantidad"
             android:inputType="text" />
     </TableRow>
+
     <TableRow>
-        <TextView android:text="@string/EstadoPedido" />
-        <EditText
-            android:id="@+id/editEstadoPedido"
-            android:inputType="text" />
+    <TextView
+        android:text="@string/EstadoPedido"/>
+    <Spinner
+        android:id="@+id/editEstadoPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp" />
     </TableRow>
+
     <TableRow>
+
         <Button
-            android:onClick="actualizarDetallepedido"
+            android:onClick="actualizarDetallePedido"
             android:text="@string/actualizar" />
     </TableRow>
     <TableRow>

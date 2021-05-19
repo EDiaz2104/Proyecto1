@@ -1,15 +1,14 @@
 package com.example.crud05;
 
 public class Producto {
-    private Integer idProducto;
+    private int idProducto;
     private String NombreProducto;
     private int idLocal;
     private int idProveedor;
 
-
     public Producto() {
         this.idProducto = idProducto;
-        this.NombreProducto = NombreProducto;
+        NombreProducto = NombreProducto;
         this.idLocal = idLocal;
         this.idProveedor = idProveedor;
     }
@@ -18,7 +17,9 @@ public class Producto {
         return idProducto;
     }
 
-    public void setIdProducto(Integer idProducto) { this.idProducto = idProducto; }
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
 
     public String getNombreProducto() {
         return NombreProducto;
@@ -32,15 +33,15 @@ public class Producto {
         return idLocal;
     }
 
-    public void setIdLocal(String idLocal) {
+    public void setIdLocal(int idLocal) {
+        this.idLocal = idLocal;
     }
 
     public int getIdProveedor() {
         return idProveedor;
     }
 
-    public void setIdProveedor(String idProveedor) {
-
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
     }
-
 }

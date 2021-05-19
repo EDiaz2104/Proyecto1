@@ -18,10 +18,24 @@
             android:inputType="text"
            />
     </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idLocal" />
+        <EditText
+            android:id="@+id/editidLocal"
+            android:inputType="text"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idProveedor" />
+        <EditText
+            android:id="@+id/editidProveedor"
+            android:inputType="text"
+            />
+    </TableRow>
 
     <TableRow>
         <Button
-            android:onClick="actualizarTipoPago"
+            android:onClick="actualizarProducto"
             android:text="@string/actualizar" />
     </TableRow>
     <TableRow>

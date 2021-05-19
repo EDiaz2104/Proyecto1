@@ -25,8 +25,10 @@ public class ProductoActualizarActivity extends Activity {
     }
     public void actualizarProducto(View v) {
         Producto p = new Producto();
-       // p.setIdProducto(editidProducto.getText().toString());
+        p.setIdProducto(Integer.parseInt(editidProducto.getText().toString()));
         p.setNombreProducto(editNombreProducto.getText().toString());
+        p.setIdLocal(Integer.parseInt(editidLocal.getText().toString()));
+        p.setIdProveedor(Integer.parseInt(editidProveedor.getText().toString()));
         helper.abrir();
         String estado = helper.actualizar(p);
         helper.cerrar();

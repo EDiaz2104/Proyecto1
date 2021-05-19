@@ -5,48 +5,48 @@ public class DetallePedido {
     private int idTipoPago;
     private int idProducto;
     private int cantidad;
-    private boolean EstadoPedido;
+    private int EstadoPedido;
 
     public DetallePedido() {
         this.idDetallePedido = idDetallePedido;
         this.idTipoPago = idTipoPago;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
-        EstadoPedido = EstadoPedido;
+        this.EstadoPedido = EstadoPedido;
     }
 
     public int getIdDetallePedido() {
         return idDetallePedido;
     }
 
-    public void setIdDetallePedido(String idDetallePedido) {
+    public void setIdDetallePedido(int idDetallePedido) {
     }
 
     public int getIdTipoPago() {
         return idTipoPago;
     }
 
-    public void setIdTipoPago(String idTipoPago) {
+    public void setIdTipoPago(int idTipoPago) {
     }
 
     public int getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(String idProducto) {
+    public void setIdProducto(int idProducto) {
     }
 
     public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
     }
 
-    public boolean isEstadoPedido() {
+    public int getEstadoPedido() {
         return EstadoPedido;
     }
 
-    public void setEstadoPedido(String estadoPedido) {
+    public void setEstadoPedido(int EstadoPedido) {
     }
 }

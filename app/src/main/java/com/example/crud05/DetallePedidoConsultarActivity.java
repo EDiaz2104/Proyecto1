@@ -36,7 +36,9 @@ public class DetallePedidoConsultarActivity extends Activity {
                     Toast.LENGTH_LONG).show();
         else{
             editcantidad.setText(String.valueOf(detalle.getCantidad()));
-            editEstadoPedido.setText(String.valueOf(detalle.isEstadoPedido()));
+            if (detalle.getEstadoPedido()==1) editEstadoPedido.setText("Activo");
+            else editEstadoPedido.setText("Inactivo");
+
         }
     }
     public void limpiarTexto(View v) {

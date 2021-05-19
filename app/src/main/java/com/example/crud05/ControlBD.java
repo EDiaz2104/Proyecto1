@@ -22,24 +22,9 @@ public class ControlBD{
     private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
     private static final String[]camposPedidoAsignado = new String [] {"idPedidoAsignado","idPedido","idRepartidor"};
     private static final String[]camposRepartidor = new String [] {"idRepartidor","idLocal","NombreRepartidor","CarnetRepartidor"};
-
     private static final String[]camposCategoria = new String [] {"idCategoria","idProducto","NombreCategoria","DescripcionCategoria"};
-
-    private static final String[] campos_usuario = new String[] {
-            "idusuario",
-            "nombreUsuario",
-            "apelUsuario",
-            "telUsuario",
-            "direccionUsuario",
-            "estadoUsuario",
-            "emailUsuario",
-            "claveUsuario"
-    };
-    private static final String[] campos_preferencial = new String[] {
-            "idPreferencial",
-            "idUsuario",
-            "idLocal"
-    };
+    private static final String[] campos_usuario = new String[] {"idusuario", "nombreUsuario", "apelUsuario", "telUsuario", "direccionUsuario", "estadoUsuario", "emailUsuario", "claveUsuario"};
+    private static final String[] campos_preferencial = new String[] {"idPreferencial", "idUsuario", "idLocal"};
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -136,7 +121,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             detalle.put("idTipoPago", detallepedido.getIdTipoPago());
             detalle.put("idProducto", detallepedido.getIdProducto());
             detalle.put("cantidad", detallepedido.getCantidad());
-            detalle.put("EstadoPedido", detallepedido.isEstadoPedido());
+            detalle.put("EstadoPedido", detallepedido.getEstadoPedido());
             contador=db.insert("detallepedido", null, detalle);
         }
         if(contador==-1 || contador==0)
@@ -197,11 +182,11 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
     public String actualizar(DetallePedido detallePedido){
 
         if(verificarIntegridad(detallePedido, 2)){
-            String [] id = {String.valueOf(detallePedido.getIdTipoPago()), String.valueOf(detallePedido.getIdProducto()), String.valueOf(detallePedido.getIdDetallePedido())};
+            String [] id = {String.valueOf(Integer.valueOf(detallePedido.getIdTipoPago())), String.valueOf(detallePedido.getIdProducto()), String.valueOf(detallePedido.getIdDetallePedido())};
             ContentValues cv = new ContentValues();
             cv.put("cantidad", detallePedido.getCantidad());
             cv.put("EstadoPedido", detallePedido.getIdDetallePedido());
-            db.update("detallepedido", cv, "idProducto = ? AND idTipoPago = ? AND idDetallepedido = ?", id);
+            db.update("detallepedido", cv, "idDetallepedido = ? AND idProducto = ? AND idTipoPago = ? ", id);
             return "Registro Actualizado Correctamente";
         }else{
             return "Registro no Existe";
@@ -264,24 +249,26 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query("producto", camposProducto, "idProducto = ?",
                 id, null, null, null);
         if(cursor.moveToFirst()){
-            Producto producto = new Producto();
-            producto.setIdProducto(cursor.getInt(0));
-            producto.setNombreProducto(cursor.getString(1));
-            return producto;
+            Producto product = new Producto();
+            product.setIdProducto(cursor.getInt(0));
+            product.setNombreProducto(cursor.getString(1));
+            product.setIdLocal(cursor.getInt(2));
+            product.setIdProveedor(cursor.getInt(3));
+            return product;
         }else{
             return null;
         }
     }
     public DetallePedido consultarDetallepedido(String idTipoPago,String idProducto, String idDetallepedido){
         String[] id = {idTipoPago,idProducto, idDetallepedido};
-        Cursor cursor = db.query("DetallePedido", camposDetallepedido, "idTipoPago = ? AND idProducto = ? AND idDetallePedido = ?", id, null, null, null);
+        Cursor cursor = db.query("detallepedido", camposDetallepedido, "idDetallePedido = ? AND idTipoPago = ? AND idProducto = ?", id, null, null, null);
         if(cursor.moveToFirst()){
             DetallePedido detalle = new DetallePedido();
-            detalle.setIdTipoPago(cursor.getString(0));
-            detalle.setIdProducto(cursor.getString(1));
-            detalle.setIdDetallePedido(cursor.getString(2));
-            detalle.setCantidad(cursor.getString(3));
-            detalle.setEstadoPedido(cursor.getString(4));
+            detalle.setIdDetallePedido(cursor.getInt(0));
+            detalle.setIdTipoPago(cursor.getInt(1));
+            detalle.setIdProducto(cursor.getInt(2));
+            detalle.setCantidad(cursor.getInt(3));
+            detalle.setEstadoPedido(cursor.getInt(4));
             return detalle;
         }else{
             return null;
@@ -1125,6 +1112,48 @@ default:
             default: return false;
         }
     }
+    public String llenarBD(){
+        final int[] VTidTipoPago = {1,2};
+        final String[] VTtipoPago = {"Credito","Tarjeta"};
+        final int[] VPidProducto = {1,2};
+        final String[] VPNombreProducto = {"Carne","Lacteos"};
+        final int[] VPidLocal = {1,2};
+        final int[] VPProveedor = {1,2};
+        final int[] VDidDetallePedido = {1,2,3,4};
+        final int[] VDidTipoPago = {1,1,2,2};
+        final int[] VDidProducto = {1,2,1,1};
+        final int[] VDcantidad = {2,5,6,7};
+        final int[] VDEstadoPedido = {0,1,1,0};
 
+        abrir();
+        db.execSQL("DELETE FROM tipopago");
+        db.execSQL("DELETE FROM producto");
+        db.execSQL("DELETE FROM detallepedido");
+        TipoPago tipo = new TipoPago();
+        for(int i=0;i<2;i++){
+            tipo.setIdTipoPago(VTidTipoPago[i]);
+            tipo.setTipoPago(VTtipoPago[i]);
+            insertar(tipo);
+        }
+        Producto p = new Producto();
+        for(int i=0;i<2;i++){
+            p.setIdProducto(VPidProducto[i]);
+            p.setNombreProducto(VPNombreProducto[i]);
+            p.setIdLocal(VPidLocal[i]);
+            p.setIdProveedor(VPProveedor[i]);
+            insertar(p);
+        }
+        DetallePedido d = new DetallePedido();
+        for(int i=0;i<4;i++){
+            d.setIdDetallePedido(VDidDetallePedido[i]);
+            d.setIdTipoPago(VDidTipoPago[i]);
+            d.setIdProducto(VDidProducto[i]);
+            d.setCantidad(VDcantidad[i]);
+            d.setEstadoPedido(VDEstadoPedido[i]);
+            insertar(d);
+        }
+        cerrar();
+        return "Guardo Correctamente";
+}
 
 }
