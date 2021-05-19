@@ -13,7 +13,7 @@ import android.widget.ListView;
 import com.example.crud05.R;
 
 public class UsuarioMenuActivity extends ListActivity {
-    String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro", "Actualizar Registro"};
+    String[] menu={"Insertar Registro","Actualizar Registro","Consultar Registro", "Eliminar Registro"};
     String[] activities={"Usuario.UsuarioCreateActivity","Usuario.UsuarioUpdateActivity","Usuario.UsuarioReadActivity", "Usuario.UsuarioDeleteActivity"};
 
     @Override
