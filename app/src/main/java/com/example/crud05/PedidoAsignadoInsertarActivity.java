@@ -23,7 +23,7 @@ public class PedidoAsignadoInsertarActivity extends AppCompatActivity {
         editIdRepartidor = (EditText) findViewById(R.id.editIdRepartidor);
 
     }
-    public void insertarPedido(View v) {
+    public void insertarAsignadoPedido(View v) {
         String idpedidoasignado=editIdPedidoAsignado.getText().toString();
         String idpedido=editIdPedido.getText().toString();
         String idrepartidor=editIdRepartidor.getText().toString();
