@@ -14,12 +14,12 @@ import com.example.crud05.R;
 
 public class PreferencialMenuActivity extends ListActivity {
     String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro", "Actualizar Registro"};
-    String[] activities={"PreferencialCreateActivity","PreferencialUpdateActivity","PreferencialReadActivity", "PreferencialDeleteActivity"};
+    String[] activities={"Preferencial.PreferencialCreateActivity","Preferencial.PreferencialUpdateActivity","Preferencial.PreferencialReadActivity", "Preferencial.PreferencialDeleteActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preferencial_menu);
+
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
         ListView listView = getListView();
         //listView.setBackgroundColor(Color.rgb(64, 0, 128));
@@ -34,7 +34,7 @@ public class PreferencialMenuActivity extends ListActivity {
         String nombreValue = activities[position];
         //l.getChildAt(position).setBackgroundColor(Color.rgb(255, 128, 0));
         try {
-            Class<?> clase = Class.forName("com.example.crud05.Preferencial." + nombreValue);
+            Class<?> clase = Class.forName("com.example.crud05." + nombreValue);
             Intent inte = new Intent(this, clase);
             this.startActivity(inte);
         } catch (ClassNotFoundException e) {

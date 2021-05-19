@@ -96,7 +96,7 @@
         </activity>
 
 
-        <activity android:name=".CategoriaEliminarActivity"></activity>
+        <activity android:name=".CategoriaEliminarActivity"/>
         <activity android:name=".CategoriaConsultarActivity" />
         <activity android:name=".CategoriaActualizarActivity" />
         <activity android:name=".CategoriaInsertarActivity" />
