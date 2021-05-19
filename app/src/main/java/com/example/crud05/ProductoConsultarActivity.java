@@ -29,15 +29,15 @@ public class ProductoConsultarActivity extends Activity {
     }
     public void consultarProducto(View v) {
         helper.abrir();
-        Producto producto =
-                helper.consultarProducto(editidProducto.getText().toString());
+        Producto producto = helper.consultarProducto(editidProducto.getText().toString());
         helper.cerrar();
         if(producto == null)
-            Toast.makeText(this, "Producto con id " +
-                    editidProducto.getText().toString() +
+            Toast.makeText(this, "Producto con id " + editidProducto.getText().toString() +
                     " no encontrado", Toast.LENGTH_LONG).show();
         else{
-            editidProducto.setText(producto.getIdProducto());
+            editNombreProducto.setText(producto.getNombreProducto());
+            editidLocal.setText(producto.getIdLocal());
+            editidProveedor.setText(producto.getIdProveedor());
         }
     }
     public void limpiarTexto(View v){

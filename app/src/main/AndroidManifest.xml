@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
 
-
         <!-- Menus -->
         <activity android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">

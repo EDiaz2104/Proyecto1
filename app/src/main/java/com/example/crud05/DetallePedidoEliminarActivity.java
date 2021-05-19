@@ -30,11 +30,11 @@ public class DetallePedidoEliminarActivity extends Activity {
     public void eliminarDetallePedido(View v){
         String regEliminadas;
         DetallePedido detalle = new DetallePedido();
-        detalle.setIdTipoPago(editidTipoPago.getText().toString());
-        detalle.setIdProducto(editidProducto.getText().toString());
-        detalle.setIdDetallePedido(editidDetallePedido.getText().toString());
-        detalle.setCantidad(editcantidad.getText().toString());
-        detalle.setEstadoPedido(editEstadoPedido.getText().toString());
+        detalle.setIdTipoPago(Integer.parseInt(editidTipoPago.getText().toString()));
+        detalle.setIdProducto(Integer.parseInt(editidProducto.getText().toString()));
+        detalle.setIdDetallePedido(Integer.parseInt(editidDetallePedido.getText().toString()));
+        detalle.setCantidad(Integer.parseInt(editcantidad.getText().toString()));
+        detalle.setEstadoPedido(Integer.parseInt(editEstadoPedido.getText().toString()));
         controlhelper.abrir();
         regEliminadas=controlhelper.eliminar(detalle);
         controlhelper.cerrar();

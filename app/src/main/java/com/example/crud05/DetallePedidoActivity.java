@@ -10,8 +10,7 @@ import android.widget.ListView;
 public class DetallePedidoActivity extends ListActivity {
     String[] menu={"Insertar Registro","Eliminar Registro","Consultar Registro", "Actualizar Registro"};
     String[]
-            activities={"DetallePedidoInsertarActivity","DetallePedidoEliminarActivity","DetallePedidoConsultarActivity",
-            "DetallePedidoActualizarActivity"};
+            activities={"DetallePedidoInsertarActivity","DetallePedidoEliminarActivity","DetallePedidoConsultarActivity", "DetallePedidoActualizarActivity"};
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

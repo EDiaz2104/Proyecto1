@@ -13,7 +13,7 @@ public class DetallePedidoInsertarActivity extends Activity {
     EditText editidProducto;
     EditText editidDetallePedido;
     EditText editcantidad;
-    EditText editEstadoPedido;
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,21 +23,21 @@ public class DetallePedidoInsertarActivity extends Activity {
         editidProducto = (EditText) findViewById(R.id.editidProducto);
         editidDetallePedido = (EditText) findViewById(R.id.editidDetallePedido);
         editcantidad = (EditText) findViewById(R.id.editcantidad);
-        editEstadoPedido = (EditText) findViewById(R.id.editEstadoPedido);
+
     }
     public void insertarDetallePedido(View v) {
         String regInsertados;
-        Integer idDetallepedido= Integer.valueOf(editidDetallePedido.getText().toString());
-        Integer idTipoPago= Integer.valueOf(editidTipoPago.getText().toString());
-        Integer idProducto= Integer.valueOf(editidProducto.getText().toString());
-        String cantidad=editcantidad.getText().toString();
-        Boolean EstadoPedido = Boolean.valueOf(editEstadoPedido.getText().toString());
+        int idDetallepedido= Integer.valueOf(editidDetallePedido.getText().toString());
+        int idTipoPago= Integer.valueOf(editidTipoPago.getText().toString());
+        int idProducto= Integer.valueOf(editidProducto.getText().toString());
+        int cantidad= Integer.parseInt(editcantidad.getText().toString());
+
         DetallePedido detalle= new DetallePedido();
-        detalle.setIdTipoPago(String.valueOf(idTipoPago));
-        detalle.setIdProducto(String.valueOf(idProducto));
-        detalle.setIdDetallePedido(String.valueOf(idDetallepedido));
+        detalle.setIdTipoPago(idTipoPago);
+        detalle.setIdProducto(idProducto);
+        detalle.setIdDetallePedido(idDetallepedido);
         detalle.setCantidad(cantidad);
-        detalle.setEstadoPedido(String.valueOf(EstadoPedido));
+        detalle.setEstadoPedido(1);
         helper.abrir();
         regInsertados=helper.insertar(detalle);
         helper.cerrar();
@@ -48,6 +48,6 @@ public class DetallePedidoInsertarActivity extends Activity {
         editidProducto.setText("");
         editidDetallePedido.setText("");
         editcantidad.setText("");
-        editEstadoPedido.setText("");
+
     }
 }

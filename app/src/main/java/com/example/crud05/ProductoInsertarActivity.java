@@ -32,8 +32,8 @@ public class ProductoInsertarActivity extends Activity {
         Producto pro=new Producto();
         pro.setIdProducto(idProducto);
         pro.setNombreProducto(NombreProducto);
-        pro.setIdLocal(String.valueOf(idLocal));
-        pro.setIdProveedor(String.valueOf(idProveedor));
+        pro.setIdLocal(idLocal);
+        pro.setIdProveedor(idProveedor);
         helper.abrir();
         regInsertados=helper.insertar(pro);
         helper.cerrar();
