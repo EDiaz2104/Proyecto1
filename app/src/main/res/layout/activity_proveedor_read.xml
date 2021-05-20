@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Preferencial.PreferencialReadActivity">
-
+    tools:context=".Proveedor.ProveedorReadActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,21 +12,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:text="@string/title_preferencial_consultar"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:text="Id de Preferencial"
+            android:text="@string/title_proveedor_consultar"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Id de Proveedor"
             />
 
         <EditText
-            android:id="@+id/edit_idPreferencial"
+            android:id="@+id/edit_idProveedor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -45,7 +45,7 @@
                 android:layout_weight=".5"
                 android:layout_height="wrap_content"
                 android:text="Consultar"
-                android:onClick="consultarPreferencial"
+                android:onClick="consultarProveedor"
                 android:layout_margin="5dp"
                 android:layout_width="0dp"/>
 
@@ -59,18 +59,16 @@
                 android:layout_width="0dp"/>
 
         </LinearLayout>
-
-        <!--IdUsuario-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:text="Id de Usuario"
+            android:text=""
 
             />
 
         <EditText
-            android:id="@+id/edit_idUsuario"
+            android:id="@+id/edit_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -82,16 +80,37 @@
             android:cursorVisible="false"
             android:longClickable="false"/>
 
-        <!--IdLocal-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:text="Id de Local"
+            android:text=""
+
             />
 
         <EditText
-            android:id="@+id/edit_idLocal"
+            android:id="@+id/edit_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLength="50"
+            android:layout_margin="12dp"
+            android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text=""
+
+            />
+
+        <EditText
+            android:id="@+id/edit_telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"

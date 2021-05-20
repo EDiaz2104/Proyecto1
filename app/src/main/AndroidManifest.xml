@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".Proveedor.ProveedorDeleteActivity"></activity>
+        <activity android:name=".Proveedor.ProveedorReadActivity"></activity>
+        <activity android:name=".Proveedor.ProveedorDeleteActivity" />
         <activity android:name=".Proveedor.ProveedorUpdateActivity" />
         <activity android:name=".Proveedor.ProveedorCreateActivity" />
         <activity android:name=".Menus.ProveedorMenuActivity" /> <!-- Menus -->

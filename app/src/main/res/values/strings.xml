@@ -57,6 +57,8 @@
     <string name="title_proveedor_create">Crear Proveedor</string>
     <string name="title_proveedor_update">Actualizar Proveedor</string>
     <string name="title_proveedor_eliminar">Eliminar Proveedor</string>
+    <string name="title_preferencial_consultar">Consultar Prefrencial</string>
+    <string name="title_proveedor_consultar">Consultar Proveedor</string>
     <string-array name="estados_usuario">
         <item>Activo</item>
         <item>Inactivo</item>

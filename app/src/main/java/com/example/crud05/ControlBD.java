@@ -1128,6 +1128,23 @@ default:
         }
     }
 
+    public Proveedor consultarProveedor(String idP){
+        String[] idp = {idP};
+        Cursor cursor = db.query("Proveedor", campos_preferencial, "idProveedor = ?", idp, null, null, null);
+        if(cursor.moveToFirst()){
+            Proveedor proveedor = new Proveedor();
+            proveedor.setIdProveedor(cursor.getInt(0));
+            proveedor.setNombreProveedor(cursor.getString(1));
+            proveedor.setDescripcionProveedor(cursor.getString(2));
+            proveedor.setTelefonoProveedor(cursor.getString(3));
+            return proveedor;
+        }else{
+            return null;
+        }
+    }
+    
+
+
     //Integridades
     private boolean verificarIntegridad2(Object dato, int relacion) throws SQLException{
         switch(relacion){
