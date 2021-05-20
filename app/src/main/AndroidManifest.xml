@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-
-        <!-- Menus -->
-        <activity android:name=".Menus.UsuarioMenuActivity"
+        <activity android:name=".Proveedor.ProveedorDeleteActivity"></activity>
+        <activity android:name=".Proveedor.ProveedorUpdateActivity" />
+        <activity android:name=".Proveedor.ProveedorCreateActivity" />
+        <activity android:name=".Menus.ProveedorMenuActivity" /> <!-- Menus -->
+        <activity
+            android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -19,16 +22,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Menus.PreferencialMenuActivity"
+        <activity
+            android:name=".Menus.PreferencialMenuActivity"
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <!-- CRUD Preferencial -->
-        <activity android:name=".Preferencial.PreferencialDeleteActivity"
+        </activity> <!-- CRUD Preferencial -->
+        <activity
+            android:name=".Preferencial.PreferencialDeleteActivity"
             android:parentActivityName=".Menus.PreferencialMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -36,7 +40,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.PreferencialMenuActivity" />
         </activity>
-        <activity android:name=".Preferencial.PreferencialUpdateActivity"
+        <activity
+            android:name=".Preferencial.PreferencialUpdateActivity"
             android:parentActivityName=".Menus.PreferencialMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -44,7 +49,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.PreferencialMenuActivity" />
         </activity>
-        <activity android:name=".Preferencial.PreferencialReadActivity"
+        <activity
+            android:name=".Preferencial.PreferencialReadActivity"
             android:parentActivityName=".Menus.PreferencialMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -52,16 +58,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.PreferencialMenuActivity" />
         </activity>
-        <activity android:name=".Preferencial.PreferencialCreateActivity"
+        <activity
+            android:name=".Preferencial.PreferencialCreateActivity"
             android:parentActivityName=".Menus.PreferencialMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.PreferencialMenuActivity" />
-        </activity>
-        <!-- CRUD Usuario -->
-        <activity android:name=".Usuario.UsuarioDeleteActivity"
+        </activity> <!-- CRUD Usuario -->
+        <activity
+            android:name=".Usuario.UsuarioDeleteActivity"
             android:parentActivityName=".Menus.UsuarioMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -69,7 +76,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.UsuarioMenuActivity" />
         </activity>
-        <activity android:name=".Usuario.UsuarioUpdateActivity"
+        <activity
+            android:name=".Usuario.UsuarioUpdateActivity"
             android:parentActivityName=".Menus.UsuarioMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -77,7 +85,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.UsuarioMenuActivity" />
         </activity>
-        <activity android:name=".Usuario.UsuarioReadActivity"
+        <activity
+            android:name=".Usuario.UsuarioReadActivity"
             android:parentActivityName=".Menus.UsuarioMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -85,7 +94,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.UsuarioMenuActivity" />
         </activity>
-        <activity android:name=".Usuario.UsuarioCreateActivity"
+        <activity
+            android:name=".Usuario.UsuarioCreateActivity"
             android:parentActivityName=".Menus.UsuarioMenuActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -93,205 +103,153 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menus.UsuarioMenuActivity" />
         </activity>
-
-
-        <activity android:name=".CategoriaEliminarActivity"
-            android:parentActivityName=".CategoriaMenuActivity">
-
-        </activity>
-        <activity android:name=".CategoriaConsultarActivity"
-            android:parentActivityName=".CategoriaMenuActivity">
-
-        </activity>
-        <activity android:name=".CategoriaActualizarActivity"
-            android:parentActivityName=".CategoriaMenuActivity">
-
-        </activity>
-        <activity android:name=".CategoriaInsertarActivity"
-            android:parentActivityName=".CategoriaMenuActivity">
-
-        </activity>
-        <activity android:name=".CategoriaMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-
-        <activity android:name=".DetalleProductoCrudActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".HorarioEliminarConsultarActivity"
-            android:parentActivityName=".HorarioMenuActivity">
-
-        </activity>
-        <activity android:name=".HorarioActualizarActivity"
-            android:parentActivityName=".HorarioMenuActivity">
-
-        </activity>
-        <activity android:name=".HorarioInsertarActivity"
-            android:parentActivityName=".HorarioMenuActivity">
-
-        </activity>
-        <activity android:name=".HorarioMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".LocalMenuActivity"
-            android:parentActivityName=".LocalMenuActivity">
-
-        </activity>
-        <activity android:name=".EncargadoLocalMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".LocalEliminarActivity"
-            android:parentActivityName=".LocalMenuActivity">
-
-        </activity>
-        <activity android:name=".LocalCrearActualizarActivity"
-            android:parentActivityName=".LocalMenuActivity">
-
-        </activity>
-        <activity android:name=".EncargadoLocalIncerActualActivity"
-            android:parentActivityName=".EncargadoLocalMenuActivity">
-
-        </activity>
-        <activity android:name=".EncargadoLocalEliminarActivity"
-            android:parentActivityName=".EncargadoLocalMenuActivity">
-
-        </activity>
-        <activity android:name=".UbicacionConsulElimiActivity"
-            android:parentActivityName=".UbicacionMenuActivity">
-
-        </activity>
-        <activity android:name=".UbicacionInserActuaActivity"
-            android:parentActivityName=".UbicacionMenuActivity">
-
-        </activity>
-        <activity android:name=".UbicacionMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".ProductoConsultarActivity"
-            android:parentActivityName=".ProductoActivity">
-
-        </activity>
-        <activity android:name=".ProductoActualizarActivity"
-            android:parentActivityName=".ProductoActivity">
-
-        </activity>
-        <activity android:name=".ProductoEliminarActivity"
-            android:parentActivityName=".ProductoActivity">
-
-        </activity>
-        <activity android:name=".ProductoInsertarActivity"
-            android:parentActivityName=".ProductoActivity">
-
-        </activity>
-        <activity android:name=".DetallePedidoConsultarActivity"
-            android:parentActivityName=".DetallePedidoActivity">
-
-        </activity>
-        <activity android:name=".DetallePedidoActualizarActivity"
-            android:parentActivityName=".DetallePedidoActivity">
-
-        </activity>
-        <activity android:name=".DetallePedidoEliminarActivity"
-            android:parentActivityName=".DetallePedidoActivity">
-
-        </activity>
-        <activity android:name=".DetallePedidoInsertarActivity"
-            android:parentActivityName=".DetallePedidoActivity">
-
-        </activity>
-        <activity android:name=".TipoPagoConsultarActivity"
-            android:parentActivityName=".TipoPagoActivity">
-
-        </activity>
-        <activity android:name=".TipoPagoActualizarActivity"
-            android:parentActivityName=".TipoPagoActivity">
-
-        </activity>
-        <activity android:name=".TipoPagoEliminarActivity"
-            android:parentActivityName=".TipoPagoActivity">
-
-        </activity>
-        <activity android:name=".TipoPagoInsertarActivity"
-            android:parentActivityName=".TipoPagoActivity">
-
-        </activity>
-        <activity android:name=".ProductoActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".DetallePedidoActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".TipoPagoActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".PedidoMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".PedidoAsignadoMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".RepartidorMenuActivity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-        <activity android:name=".RepartidorInsertatActivity"
-            android:parentActivityName=".RepartidorMenuActivity">
-
-        </activity>
-        <activity android:name=".RepartidorActualizarActivity"
-            android:parentActivityName=".RepartidorMenuActivity">
-
-        </activity>
-        <activity android:name=".RepartidorConsultarActivity"
-            android:parentActivityName=".RepartidorMenuActivity">
-
-        </activity>
-        <activity android:name=".RepartidorEliminarActivity"
-            android:parentActivityName=".RepartidorMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoConsultarActivity"
-            android:parentActivityName=".PedidoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoActualizarActivity"
-            android:parentActivityName=".PedidoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoInsertarActivity"
-            android:parentActivityName=".PedidoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoEliminarActivity"
-            android:parentActivityName=".PedidoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoAsignadoInsertarActivity"
-            android:parentActivityName=".PedidoAsignadoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoAsignadoConsultarActivity"
-            android:parentActivityName=".PedidoAsignadoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoAsignadoActualizarActivity"
-            android:parentActivityName=".PedidoAsignadoMenuActivity">
-
-        </activity>
-        <activity android:name=".PedidoAsignadoEliminarActivity"
-            android:parentActivityName=".PedidoAsignadoMenuActivity">
-
-        </activity>
+        <activity
+            android:name=".CategoriaEliminarActivity"
+            android:parentActivityName=".CategoriaMenuActivity" />
+        <activity
+            android:name=".CategoriaConsultarActivity"
+            android:parentActivityName=".CategoriaMenuActivity" />
+        <activity
+            android:name=".CategoriaActualizarActivity"
+            android:parentActivityName=".CategoriaMenuActivity" />
+        <activity
+            android:name=".CategoriaInsertarActivity"
+            android:parentActivityName=".CategoriaMenuActivity" />
+        <activity
+            android:name=".CategoriaMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DetalleProductoCrudActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HorarioEliminarConsultarActivity"
+            android:parentActivityName=".HorarioMenuActivity" />
+        <activity
+            android:name=".HorarioActualizarActivity"
+            android:parentActivityName=".HorarioMenuActivity" />
+        <activity
+            android:name=".HorarioInsertarActivity"
+            android:parentActivityName=".HorarioMenuActivity" />
+        <activity
+            android:name=".HorarioMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LocalMenuActivity"
+            android:parentActivityName=".LocalMenuActivity" />
+        <activity
+            android:name=".EncargadoLocalMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LocalEliminarActivity"
+            android:parentActivityName=".LocalMenuActivity" />
+        <activity
+            android:name=".LocalCrearActualizarActivity"
+            android:parentActivityName=".LocalMenuActivity" />
+        <activity
+            android:name=".EncargadoLocalIncerActualActivity"
+            android:parentActivityName=".EncargadoLocalMenuActivity" />
+        <activity
+            android:name=".EncargadoLocalEliminarActivity"
+            android:parentActivityName=".EncargadoLocalMenuActivity" />
+        <activity
+            android:name=".UbicacionConsulElimiActivity"
+            android:parentActivityName=".UbicacionMenuActivity" />
+        <activity
+            android:name=".UbicacionInserActuaActivity"
+            android:parentActivityName=".UbicacionMenuActivity" />
+        <activity
+            android:name=".UbicacionMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ProductoConsultarActivity"
+            android:parentActivityName=".ProductoActivity" />
+        <activity
+            android:name=".ProductoActualizarActivity"
+            android:parentActivityName=".ProductoActivity" />
+        <activity
+            android:name=".ProductoEliminarActivity"
+            android:parentActivityName=".ProductoActivity" />
+        <activity
+            android:name=".ProductoInsertarActivity"
+            android:parentActivityName=".ProductoActivity" />
+        <activity
+            android:name=".DetallePedidoConsultarActivity"
+            android:parentActivityName=".DetallePedidoActivity" />
+        <activity
+            android:name=".DetallePedidoActualizarActivity"
+            android:parentActivityName=".DetallePedidoActivity" />
+        <activity
+            android:name=".DetallePedidoEliminarActivity"
+            android:parentActivityName=".DetallePedidoActivity" />
+        <activity
+            android:name=".DetallePedidoInsertarActivity"
+            android:parentActivityName=".DetallePedidoActivity" />
+        <activity
+            android:name=".TipoPagoConsultarActivity"
+            android:parentActivityName=".TipoPagoActivity" />
+        <activity
+            android:name=".TipoPagoActualizarActivity"
+            android:parentActivityName=".TipoPagoActivity" />
+        <activity
+            android:name=".TipoPagoEliminarActivity"
+            android:parentActivityName=".TipoPagoActivity" />
+        <activity
+            android:name=".TipoPagoInsertarActivity"
+            android:parentActivityName=".TipoPagoActivity" />
+        <activity
+            android:name=".ProductoActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DetallePedidoActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TipoPagoActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PedidoMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PedidoAsignadoMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RepartidorMenuActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RepartidorInsertatActivity"
+            android:parentActivityName=".RepartidorMenuActivity" />
+        <activity
+            android:name=".RepartidorActualizarActivity"
+            android:parentActivityName=".RepartidorMenuActivity" />
+        <activity
+            android:name=".RepartidorConsultarActivity"
+            android:parentActivityName=".RepartidorMenuActivity" />
+        <activity
+            android:name=".RepartidorEliminarActivity"
+            android:parentActivityName=".RepartidorMenuActivity" />
+        <activity
+            android:name=".PedidoConsultarActivity"
+            android:parentActivityName=".PedidoMenuActivity" />
+        <activity
+            android:name=".PedidoActualizarActivity"
+            android:parentActivityName=".PedidoMenuActivity" />
+        <activity
+            android:name=".PedidoInsertarActivity"
+            android:parentActivityName=".PedidoMenuActivity" />
+        <activity
+            android:name=".PedidoEliminarActivity"
+            android:parentActivityName=".PedidoMenuActivity" />
+        <activity
+            android:name=".PedidoAsignadoInsertarActivity"
+            android:parentActivityName=".PedidoAsignadoMenuActivity" />
+        <activity
+            android:name=".PedidoAsignadoConsultarActivity"
+            android:parentActivityName=".PedidoAsignadoMenuActivity" />
+        <activity
+            android:name=".PedidoAsignadoActualizarActivity"
+            android:parentActivityName=".PedidoAsignadoMenuActivity" />
+        <activity
+            android:name=".PedidoAsignadoEliminarActivity"
+            android:parentActivityName=".PedidoAsignadoMenuActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

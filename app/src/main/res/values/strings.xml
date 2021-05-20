@@ -54,6 +54,9 @@
     <string name="title_preferencial_crear">Crear Preferencial</string>
     <string name="title_preferencial_actualizar">Actualizar Preferencial</string>
     <string name="title_preferencial_eliminar">Eliminar Preferencial</string>
+    <string name="title_proveedor_create">Crear Proveedor</string>
+    <string name="title_proveedor_update">Actualizar Proveedor</string>
+    <string name="title_proveedor_eliminar">Eliminar Proveedor</string>
     <string-array name="estados_usuario">
         <item>Activo</item>
         <item>Inactivo</item>
