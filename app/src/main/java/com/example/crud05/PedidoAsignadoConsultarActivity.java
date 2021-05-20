@@ -24,7 +24,7 @@ public class PedidoAsignadoConsultarActivity extends AppCompatActivity {
         editIdRepartidor = (EditText) findViewById(R.id.editIdRepartidor);
 
     }
-    public void consultarRepartidor(View v) {
+    public void consultarPedidoAsignado(View v) {
         helper.abrir();
         PedidoAsignado pedidoasignado = helper.consultarPedidoAsignado(editIdPedidoAsignado.getText().toString());
         helper.cerrar();

@@ -43,10 +43,8 @@
     </TableRow>
     <TableRow>
         <Button
-            android:onClick="insertarRepartidor"
-            android:text="@string/insertar" />
-        <Button
-            android:onClick="limpiarTexto"
-            android:text="@string/limpiar" />
+            android:onClick="consultarPedidoAsignado"
+            android:text="@string/consultar" />
+
     </TableRow>
 </TableLayout>

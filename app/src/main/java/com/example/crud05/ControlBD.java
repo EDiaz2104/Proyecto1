@@ -63,7 +63,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         try{
             db.execSQL("CREATE TABLE tipopago(idTipoPago INTEGER NOT NULL PRIMARY KEY,tipoPago VARCHAR(30));");
             db.execSQL("CREATE TABLE producto(idProducto INTEGER NOT NULL PRIMARY KEY,NombreProducto VARCHAR(50),idLocal INTEGER,idProveedor INTEGER);");
-            db.execSQL("CREATE TABLE detallepedido(idTipoPago INTEGER NOT NULL ,idProducto INTEGER NOT NULL ,idDetallePedido INTEGER ,cantidad INTEGER,EstadoPedido BOOLEAN ,PRIMARY KEY(idTipoPago,idProducto,idDetallePedido));");
+            db.execSQL("CREATE TABLE detallepedido(idTipoPago INTEGER NOT NULL ,idProducto INTEGER NOT NULL ,idDetallePedido INTEGER ,cantidad INTEGER,EstadoPedido INTEGER ,PRIMARY KEY(idTipoPago,idProducto,idDetallePedido));");
 
             db.execSQL("CREATE TABLE repartidor(idRepartidor INTEGER NOT NULL PRIMARY KEY,idLocal INTEGER,NombreRepartidor VARCHAR(30), CarnetRepartidor VARCHAR(10));");
             db.execSQL("CREATE TABLE categoriaproducto(idCategoria INTEGER NOT NULL PRIMARY KEY,idProducto INTEGER,NombreCategoria VARCHAR(30), DescripcionCategoria VARCHAR(30));");
@@ -132,8 +132,8 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
     public String insertar(DetallePedido detallepedido){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
-        if(verificarIntegridad(detallepedido,1))
-        {
+      if(verificarIntegridad(detallepedido,1))
+       {
             ContentValues detalle = new ContentValues();
             detalle.put("idDetallePedido", detallepedido.getIdDetallePedido());
             detalle.put("idTipoPago", detallepedido.getIdTipoPago());
@@ -141,10 +141,10 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
             detalle.put("cantidad", detallepedido.getCantidad());
             detalle.put("EstadoPedido", detallepedido.getEstadoPedido());
             contador=db.insert("detallepedido", null, detalle);
-        }
+       }
         if(contador==-1 || contador==0)
         {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+         //   regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
         }
         else {
             regInsertados=regInsertados+contador;
@@ -871,17 +871,15 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         switch(relacion){
         case 1:
         {
-//verificar que al insertar nota exista carnet del alumno y el codigo de materia
         DetallePedido detallePedido = (DetallePedido) dato;
         String [] id1= {String.valueOf(detallePedido.getIdTipoPago())};
         String[] id2 = {String.valueOf(detallePedido.getIdProducto())};
             /* abrir(); */
         Cursor cursor1 = db.query("tipopago", null, "idTipoPago = ?", id1, null,
         null, null);
-        Cursor cursor2 = db.query("producto", null, "idProducto = ?", id2,
-        null, null, null);
+        Cursor cursor2 = db.query("producto", null, "idProducto = ?", id2, null, null, null);
         if(cursor1.moveToFirst() && cursor2.moveToFirst()){
-//Se encontraron datos
+
         return true;
         }
         return false;
@@ -1194,14 +1192,14 @@ default:
             p.setIdProveedor(VPProveedor[i]);
             insertar(p);
         }
-        DetallePedido d = new DetallePedido();
+        DetallePedido detalle = new DetallePedido();
         for(int i=0;i<4;i++){
-            d.setIdDetallePedido(VDidDetallePedido[i]);
-            d.setIdTipoPago(VDidTipoPago[i]);
-            d.setIdProducto(VDidProducto[i]);
-            d.setCantidad(VDcantidad[i]);
-            d.setEstadoPedido(VDEstadoPedido[i]);
-            insertar(d);
+            detalle.setIdDetallePedido(VDidDetallePedido[i]);
+            detalle.setIdTipoPago(VDidTipoPago[i]);
+            detalle.setIdProducto(VDidProducto[i]);
+            detalle.setCantidad(VDcantidad[i]);
+            detalle.setEstadoPedido(VDEstadoPedido[i]);
+            insertar(detalle);
         }
         cerrar();
         return "Guardo Correctamente";
