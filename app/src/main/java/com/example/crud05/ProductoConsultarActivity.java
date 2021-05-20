@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 
 public class ProductoConsultarActivity extends Activity {
-
     ControlBD helper;
     EditText editidProducto;
     EditText editNombreProducto;
@@ -23,28 +22,29 @@ public class ProductoConsultarActivity extends Activity {
         helper = new ControlBD(this);
         editidProducto = (EditText) findViewById(R.id.editidProducto);
         editNombreProducto = (EditText) findViewById(R.id.editNombreProducto);
-        editidLocal =(EditText) findViewById(R.id.editidLocal);
+        editidLocal=(EditText) findViewById(R.id.editidLocal);
         editidProveedor=(EditText) findViewById(R.id.editidProveedor);
 
     }
     public void consultarProducto(View v) {
         helper.abrir();
-        Producto producto = helper.consultarProducto(editidProducto.getText().toString());
+        Producto p = helper.consultarProducto(editidProducto.getText().toString());
         helper.cerrar();
-        if(producto == null)
-            Toast.makeText(this, "Producto con id " + editidProducto.getText().toString() +
+        if(p == null)
+            Toast.makeText(this, "Producto con id " +
+                    editidProducto.getText().toString() +
                     " no encontrado", Toast.LENGTH_LONG).show();
         else{
-            editNombreProducto.setText(producto.getNombreProducto());
-            editidLocal.setText(producto.getIdLocal());
-            editidProveedor.setText(producto.getIdProveedor());
+            editNombreProducto.setText(p.getNombreProducto());
+            editidLocal.setText(Integer.valueOf(p.getIdLocal()));
+            editidProveedor.setText(Integer.valueOf(p.getIdProveedor()));
         }
     }
     public void limpiarTexto(View v){
         editidProducto.setText("");
         editNombreProducto.setText("");
         editidLocal.setText("");
-        editidProveedor.setText("");
+         editidProveedor.setText("");
 
     }
 }

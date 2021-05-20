@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dip"
-    android:stretchColumns="1" >
+    android:stretchColumns="1">
+
     <TableRow>
 
         <TextView android:text="@string/idTipoPago" />
@@ -12,15 +13,16 @@
             android:id="@+id/editidTipoPago"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
-            android:inputType="text"
-             />
+            android:inputType="text" />
     </TableRow>
+
     <TableRow>
+
         <TextView android:text="@string/tipoPago" />
+
         <EditText
             android:id="@+id/edittipoPago"
-            android:inputType="text"
-             />
+            android:inputType="text" />
     </TableRow>
 
     <TableRow>
@@ -30,7 +32,9 @@
             android:onClick="actualizarTipoPago"
             android:text="@string/actualizar" />
     </TableRow>
+
     <TableRow>
+
         <Button
             android:onClick="limpiarTexto"
             android:text="@string/limpiar" />
