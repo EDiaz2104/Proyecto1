@@ -41,6 +41,13 @@ public class ControlBD{
             "idLocal"
     };
 
+    private static final String[] campos_proveedor = new String[]{
+            "idProveedor",
+            "nombreProveedor",
+            "descripcionProveedor",
+            "telefonoProveedor",
+    };
+
     private static final String[]camposCategoria = new String [] {"idCategoria","idProducto","NombreCategoria","DescripcionCategoria"};
 
 
@@ -90,6 +97,13 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
                     "idPreferencial INTEGER PRIMARY KEY," +
                     "idUsuario INTEGER," +
                     "idLocal INTEGER" +
+                    ")");
+
+            db.execSQL("CREATE TABLE Proveedor (" +
+                    "idProveedor INTEGER PRIMARY KEY," +
+                    "nombreProveedor TEXT," +
+                    "descripcionProveedor TEXT," +
+                    "telefonoProveedor TEXT" +
                     ")");
 
         }catch(SQLException e){
