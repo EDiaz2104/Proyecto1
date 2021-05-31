@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import com.example.crud05.Modelos.Preferencial;
 import com.example.crud05.Modelos.Proveedor;
@@ -18,7 +17,7 @@ public class ControlBD{
     private static final String[]camposProducto = new String []{"idProducto","NombreProducto","idLocal","idProveedor"};
     private static final String[]camposHorario = new String []{"idhorario","idlocal","dia","apertura","cierre"};
     private static final String[]camposLocal = new String []{"idlocal", "idencargadolocal", "idubicacion", "nomlocal"};
-    private static final String[]camposUbicacion = new String []{"idubicacion","descripcionubicacion"};
+    //private static final String[]camposUbicacion = new String []{"idubicacion","descripcionubicacion"};
     private static final String[]camposEncargadoLocal = new String []{"idencargadolocal", "idusuario", "nomencargado", "apelencargado","telencargado"};
     private static final String[]camposDetalleProducto = new String []{"idDetalleProduc", "idProducto", "cantidadProducto", "precioProducto"};
     private static final String[]camposPedido = new String [] {"idPedido","idLocal","idCombo","idUsuario", "idDetallePedido","FechaPedido"};
@@ -309,7 +308,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
 
     ////////////////////////////////HORARIO//////////////////////////////////
 
-    public String insertarHorario(Horario horario){
+   /* public String insertarHorario(Horario horario){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
         ContentValues registro = new ContentValues();
@@ -371,64 +370,64 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
         contador+=db.delete("horario", "idhorario='"+hora.getIdhorario()+"'", null);
         regAfectados+=contador;
         return regAfectados;
-    }
+    }*/
 
     ///////////////////////////////UBICACION///////////////////////////////
 
-    public String insertarUbicacion(Ubicacion ubi){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
-        ContentValues registro = new ContentValues();
-        registro.put("idubicacion", ubi.getIdubicacion());
-        registro.put("descripcionubicacion", ubi.getDescripcionubicacion());
-        contador=db.insert("ubicacion", null, registro);
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else {
-            regInsertados=regInsertados+contador;
-        }
-        return regInsertados;
-    }
-
-    public String actualizarUbicacion(Ubicacion ubi){
-        Integer v_id = ubi.getIdubicacion();                                                        //Pequeño artifisio para convertir el int en string
-        String[] id = {String.valueOf(v_id)};
-        ContentValues cv = new ContentValues();
-        cv.put("descripcionubicacion", ubi.getDescripcionubicacion());
-        int registro = db.update("ubicacion", cv, "idubicacion = ?", id);         //el id solo acepta string
-
-        if(registro == 1){
-            return "Registro Actualizado Correctamente";
-        }else{
-            return "Registro con ID " + ubi.getIdubicacion() + " no existe";
-        }
-    }
-
-    public Ubicacion consultarUbicacion(String idubicacion){
-        String[] id = {idubicacion};
-        Cursor cursor = db.query("ubicacion", camposUbicacion, "idubicacion = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
-            Ubicacion ubi = new Ubicacion();
-            ubi.setIdubicacion(cursor.getInt(0));
-            ubi.setDescripcionubicacion(cursor.getString(1));
-            return ubi;
-        }else{
-            return null;
-        }
-    }
-
-    public String eliminarUbicacion(Ubicacion ubicacion){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        //if (verificarIntegridad(hora,3)) {
-        //    contador+=db.delete("nota", "carnet='"+hora.getidubicacion()+"'", null);
-        //}
-        contador+=db.delete("ubicacion", "idubicacion='"+ubicacion.getIdubicacion()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
-    }
+//    public String insertarUbicacion(Ubicacion ubi){
+//        String regInsertados="Registro Insertado Nº= ";
+//        long contador=0;
+//        ContentValues registro = new ContentValues();
+//        registro.put("idubicacion", ubi.getIdubicacion());
+//        registro.put("descripcionubicacion", ubi.getDescripcionubicacion());
+//        contador=db.insert("ubicacion", null, registro);
+//        if(contador==-1 || contador==0)
+//        {
+//            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+//        }
+//        else {
+//            regInsertados=regInsertados+contador;
+//        }
+//        return regInsertados;
+//    }
+//
+//    public String actualizarUbicacion(Ubicacion ubi){
+//        Integer v_id = ubi.getIdubicacion();                                                        //Pequeño artifisio para convertir el int en string
+//        String[] id = {String.valueOf(v_id)};
+//        ContentValues cv = new ContentValues();
+//        cv.put("descripcionubicacion", ubi.getDescripcionubicacion());
+//        int registro = db.update("ubicacion", cv, "idubicacion = ?", id);         //el id solo acepta string
+//
+//        if(registro == 1){
+//            return "Registro Actualizado Correctamente";
+//        }else{
+//            return "Registro con ID " + ubi.getIdubicacion() + " no existe";
+//        }
+//    }
+//
+//    public Ubicacion consultarUbicacion(String idubicacion){
+//        String[] id = {idubicacion};
+//        Cursor cursor = db.query("ubicacion", camposUbicacion, "idubicacion = ?", id, null, null, null);
+//        if(cursor.moveToFirst()){
+//            Ubicacion ubi = new Ubicacion(id, descripcionUbicacion);
+//            ubi.setIdubicacion(cursor.getInt(0));
+//            ubi.setDescripcionubicacion(cursor.getString(1));
+//            return ubi;
+//        }else{
+//            return null;
+//        }
+//    }
+//
+//    public String eliminarUbicacion(Ubicacion ubicacion){
+//        String regAfectados="filas afectadas= ";
+//        int contador=0;
+//        //if (verificarIntegridad(hora,3)) {
+//        //    contador+=db.delete("nota", "carnet='"+hora.getidubicacion()+"'", null);
+//        //}
+//        contador+=db.delete("ubicacion", "idubicacion='"+ubicacion.getIdubicacion()+"'", null);
+//        regAfectados+=contador;
+//        return regAfectados;
+//    }
 
     ///////////////////////////////ENCARGADO DE LOCAL///////////////////////////////
 

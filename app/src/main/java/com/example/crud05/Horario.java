@@ -1,8 +1,8 @@
 package com.example.crud05;
 
 public class Horario {
-    private int idhorario;
-    private int idlocal;
+    private Integer id;
+    private Integer idlocal;
     private String dia;
     private String apertura;
     private String cierre;
@@ -10,20 +10,20 @@ public class Horario {
     public Horario() {
     }
 
-    public Horario(int idhorario, int idlocal, String dia, String apertura, String cierre) {
-        this.idhorario = idhorario;
+    public Horario(int id, int idlocal, String dia, String apertura, String cierre) {
+        this.id = id;
         this.idlocal = idlocal;
         this.dia = dia;
         this.apertura = apertura;
         this.cierre = cierre;
     }
 
-    public int getIdhorario() {
-        return idhorario;
+    public int getId() {
+        return id;
     }
 
-    public void setIdhorario(int idhorario) {
-        this.idhorario = idhorario;
+    public void setId(int idhorario) {
+        this.id = idhorario;
     }
 
     public int getIdlocal() {
