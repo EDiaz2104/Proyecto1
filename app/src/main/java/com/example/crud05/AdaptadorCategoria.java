@@ -35,6 +35,7 @@ public class AdaptadorCategoria extends RecyclerView.Adapter<AdaptadorCategoria.
         holder.tvNombreCategoria.setText(listaCategorias.get(position).getNombreCategoria());
         holder.tvDescripcionCategoria.setText(listaCategorias.get(position).getDescripcionCategoria());
 
+
     }
 
     @Override

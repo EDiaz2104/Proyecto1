@@ -1,24 +1,24 @@
 package com.example.crud05;
 
 public class Categoria {
-    private Integer id;
+    private String id;
     private String nombreCategoria;
     private String descripcionCategoria;
 
     public Categoria() {
     }
 
-    public Categoria(Integer id, String nombreCategoria, String descripcionCategoria) {
+    public Categoria(String id, String nombreCategoria, String descripcionCategoria) {
         this.id = id;
         this.nombreCategoria = nombreCategoria;
         this.descripcionCategoria = descripcionCategoria;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
