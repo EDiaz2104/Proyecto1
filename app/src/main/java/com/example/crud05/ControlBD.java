@@ -759,68 +759,7 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public String insertar(Categoria categoria){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
-        ContentValues ped = new ContentValues();
-        ped.put("idCategoria", categoria.getIdCategoria());
-        ped.put("idProducto", categoria.getIdProducto());
-        ped.put("NombreCategoria", categoria.getNombreCategoria());
-        ped.put("DescripcionCategoria", categoria.getDescripcionCategoria());
-        contador=db.insert("categoriaproducto", null, ped);
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else {
-            regInsertados=regInsertados+contador;
-        }
-        return regInsertados;
-    }
 
-    public String actualizar(Categoria categoria){
-        if(categoria!=null){
-            String[] id = {String.valueOf(categoria.getIdCategoria())};
-            ContentValues cv = new ContentValues();
-            cv.put("idCategoria", categoria.getIdCategoria());
-            cv.put("idProducto", categoria.getIdProducto());
-            cv.put("NombreCategoria", categoria.getNombreCategoria());
-            cv.put("DescripcionCategoria", categoria.getDescripcionCategoria());
-            db.update("categoriaproducto", cv, "idCategoria = ?", id);
-            return "Registro Actualizado Correctamente";
-        }else{
-            return "Registro con Categoria " + categoria.getIdCategoria() + " no existe";
-        }
-    }
-
-    public String eliminar(Categoria categoria){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        if (categoria!=null) {
-            contador+=db.delete("categoriaproducto", "idCategoria='"+categoria.getIdCategoria()+"'", null);
-        }
-        contador+=db.delete("categoriaproducto", "idCategoria='"+categoria.getIdCategoria()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
-
-    }
-    public Categoria consultarCategoria(String idCategoria){
-
-        String[] id = {idCategoria};
-        Cursor cursor = db.query("categoriaproducto", camposCategoria, "idCategoria = ?",
-                id, null, null, null);
-        if(cursor.moveToFirst()){
-            Categoria categoria= new Categoria();
-            categoria.setIdCategoria(cursor.getInt(0));
-            categoria.setIdProducto(cursor.getInt(1));
-            categoria.setNombreCategoria(cursor.getString(2));
-            categoria.setDescripcionCategoria(cursor.getString(3));
-            return categoria;
-        }else{
-            return null;
-        }
-
-    }
 
     public String insertar(PedidoAsignado pedidoasignado){
         String regInsertados="Registro Insertado Nº= ";

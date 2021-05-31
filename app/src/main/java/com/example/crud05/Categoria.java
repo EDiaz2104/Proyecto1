@@ -1,50 +1,40 @@
 package com.example.crud05;
 
 public class Categoria {
-    private Integer idCategoria;
-    private Integer idProducto;
-    private String NombreCategoria;
-    private String DescripcionCategoria;
-
-    public Categoria(Integer idCategoria, Integer idProducto, String nombreCategoria, String descripcionCategoria) {
-        this.idCategoria = idCategoria;
-        this.idProducto = idProducto;
-        NombreCategoria = nombreCategoria;
-        DescripcionCategoria = descripcionCategoria;
-    }
+    private Integer id;
+    private String nombreCategoria;
+    private String descripcionCategoria;
 
     public Categoria() {
     }
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Categoria(Integer id, String nombreCategoria, String descripcionCategoria) {
+        this.id = id;
+        this.nombreCategoria = nombreCategoria;
+        this.descripcionCategoria = descripcionCategoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombreCategoria() {
-        return NombreCategoria;
+        return nombreCategoria;
     }
 
     public void setNombreCategoria(String nombreCategoria) {
-        NombreCategoria = nombreCategoria;
+        this.nombreCategoria = nombreCategoria;
     }
 
     public String getDescripcionCategoria() {
-        return DescripcionCategoria;
+        return descripcionCategoria;
     }
 
     public void setDescripcionCategoria(String descripcionCategoria) {
-        DescripcionCategoria = descripcionCategoria;
+        this.descripcionCategoria = descripcionCategoria;
     }
 }
