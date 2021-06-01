@@ -15,10 +15,6 @@
         <activity android:name=".UsuarioRestActivity" />
         <activity android:name=".AdaptadorCategoria" />
         <activity android:name=".CategoriaRestActivity" />
-        <activity android:name=".Proveedor.ProveedorReadActivity" />
-        <activity android:name=".Proveedor.ProveedorDeleteActivity" />
-        <activity android:name=".Proveedor.ProveedorUpdateActivity" />
-        <activity android:name=".Proveedor.ProveedorCreateActivity" /> <!-- Menus -->
         <activity
             android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">
