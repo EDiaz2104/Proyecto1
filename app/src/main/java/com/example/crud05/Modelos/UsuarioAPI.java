@@ -1,7 +1,7 @@
 package com.example.crud05.Modelos;
 
 public class UsuarioAPI {
-    private String idUsuario;
+    private String id;
     private String nombreUsuario;
     private String apelUsuario;
     private String telUsuario;
@@ -13,8 +13,8 @@ public class UsuarioAPI {
     public UsuarioAPI() {
     }
 
-    public UsuarioAPI(String idUsuario, String nombreUsuario, String apelUsuario, String telUsuario, String direccionUsuario, String estadoUsuario, String emailUsuario, String claveUsuario) {
-        this.idUsuario = idUsuario;
+    public UsuarioAPI(String id, String nombreUsuario, String apelUsuario, String telUsuario, String direccionUsuario, String estadoUsuario, String emailUsuario, String claveUsuario) {
+        this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.apelUsuario = apelUsuario;
         this.telUsuario = telUsuario;
@@ -25,11 +25,11 @@ public class UsuarioAPI {
     }
 
     public String getIdUsuario() {
-        return idUsuario;
+        return id;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUsuario(String id) {
+        this.id = id;
     }
 
     public String getNombreUsuario() {
