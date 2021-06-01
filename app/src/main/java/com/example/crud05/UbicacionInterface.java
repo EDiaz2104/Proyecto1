@@ -31,7 +31,7 @@ public interface UbicacionInterface {
             @Body Ubicacion ubicacion
     );
 
-    @DELETE("ubicacion/{id}")
+    @DELETE("ubicacion/id")
     Call<Void> eliminarUbicacion(
             @Query("id") String id
     );

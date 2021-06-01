@@ -9,23 +9,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="15dp"
         android:weightSum="100">
 
         <TextView
             android:id="@+id/tvIdUbicacion"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_marginRight="5dp"
             android:hint="#" />
-
 
         <TextView
             android:id="@+id/tvDescripcionUbicacion"
-            android:layout_width="0dp"
-            android:layout_height="74dp"
-            android:layout_weight="90"
-            android:gravity="center"
-            android:hint="Descripcion" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:hint="Descripcion de la Ubicacion"
+            android:gravity="center" />
 
     </LinearLayout>
 

@@ -30,7 +30,7 @@ public interface HorarioInterface {
             @Body Horario horario
     );
 
-    @DELETE("horario/{id}")
+    @DELETE("horario/id")
     Call<Void> eliminarHorario(
             @Query("id") String id
     );

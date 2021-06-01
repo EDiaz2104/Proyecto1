@@ -22,32 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etIdBuscar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            android:gravity="center"
-            android:hint="ID"
-            android:inputType="number"/>
-
-        <Button
-            android:id="@+id/btnIdBuscar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="BUSCAR " />
-
-        <Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="ELIMINAR" />
-
         <Button
             android:id="@+id/btnTodosBuscar"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="30"
             android:text="TODOS" />
@@ -68,39 +45,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <EditText
-            android:id="@+id/etId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="ID" />
 
         <EditText
             android:id="@+id/etIdLocal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Local" />
+            android:hint="id Local" />
 
         <EditText
             android:id="@+id/etDia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Dia" />
+            android:hint="Dia de la semana " />
         <EditText
             android:id="@+id/etApertura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Apertura" />
-
+            android:hint="hora de Apertura" />
         <EditText
             android:id="@+id/etCierre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Cierre" />
+            android:hint="Hora de Cierre" />
 
     </LinearLayout>
 
@@ -126,14 +96,10 @@
             android:layout_weight="50"
             android:text="AGREGAR" />
 
-        <Button
-            android:id="@+id/btnEditar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="EDITAR" />
 
     </LinearLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHorario"

@@ -40,8 +40,7 @@ public class AdaptadorHorario extends RecyclerView.Adapter<AdaptadorHorario.Hora
     }
 
     @Override
-    public int getItemCount() {
-        return listaHorarios.size();
+    public int getItemCount() { return listaHorarios.size();
     }
 
     public class HorarioViewHolder extends RecyclerView.ViewHolder {

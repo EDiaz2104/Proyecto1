@@ -22,32 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etIdBuscar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            android:gravity="center"
-            android:hint="ID"
-            android:inputType="number"/>
-
-        <Button
-            android:id="@+id/btnIdBuscar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="BUSCAR " />
-
-        <Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="ELIMINAR" />
-
         <Button
             android:id="@+id/btnTodosBuscar"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="30"
             android:text="TODOS" />
@@ -67,13 +44,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <EditText
-            android:id="@+id/etId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="ID" />
 
 
 
@@ -108,29 +78,23 @@
             android:layout_weight="50"
             android:text="AGREGAR" />
 
-        <Button
-            android:id="@+id/btnEditar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="EDITAR" />
-
 
     </LinearLayout>
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUbicacion"
-        android:layout_width="399dp"
-        android:layout_height="352dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

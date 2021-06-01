@@ -1,5 +1,6 @@
 package com.example.crud05;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +33,7 @@ public class AdaptadorUbicacion extends RecyclerView.Adapter<AdaptadorUbicacion.
     @Override
     public void onBindViewHolder(@NonNull UbicacionViewHolder holder, int position) {
         holder.tvIdUbicacion.setText(listaUbicacion.get(position).getId());
-        holder.tvDescripcionUbicacion.setText(listaUbicacion.get(position).getDescripcionUbicacion());
+        holder.tvDescripcionUbicacion.setText(listaUbicacion.get(position).getDescripcionubicacion());
 
     }
 
@@ -43,7 +44,7 @@ public class AdaptadorUbicacion extends RecyclerView.Adapter<AdaptadorUbicacion.
 
     public class UbicacionViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvIdUbicacion,tvDescripcionUbicacion;
+        TextView tvIdUbicacion, tvDescripcionUbicacion;
 
         public UbicacionViewHolder(@NonNull View itemView) {
             super(itemView);

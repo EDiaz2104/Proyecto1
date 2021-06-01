@@ -1,16 +1,14 @@
 package com.example.crud05;
 
 public class Horario {
-    private Integer id;
-    private Integer idlocal;
+    private String id;
+    private String idlocal;
     private String dia;
     private String apertura;
     private String cierre;
 
-    public Horario() {
-    }
 
-    public Horario(int id, int idlocal, String dia, String apertura, String cierre) {
+    public Horario(String id, String idlocal, String dia, String apertura, String cierre) {
         this.id = id;
         this.idlocal = idlocal;
         this.dia = dia;
@@ -18,19 +16,23 @@ public class Horario {
         this.cierre = cierre;
     }
 
-    public int getId() {
+    public Horario() {
+
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int idhorario) {
-        this.id = idhorario;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public int getIdlocal() {
+    public String getIdlocal() {
         return idlocal;
     }
 
-    public void setIdlocal(int idlocal) {
+    public void setIdlocal(String idlocal) {
         this.idlocal = idlocal;
     }
 
