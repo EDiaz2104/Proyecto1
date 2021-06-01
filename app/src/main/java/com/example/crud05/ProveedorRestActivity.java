@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,6 +39,27 @@ public class ProveedorRestActivity extends AppCompatActivity {
         btnAgregar = findViewById(R.id.btnAgregar);
         rvProveedor = findViewById(R.id.rvProveedor);
         rvProveedor.setLayoutManager(new GridLayoutManager(this, 1));
+
+        retrofit = new AdaptadorRetrofit().getAdapatador();
+        api = retrofit.create(ProveedorInterface.class);
+
+        btnTodosBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getProveedores(api);
+            }
+        });
+
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(etDescripcionProveedor.getText().toString().equals("") || etTelefono.getText().toString().equals("")) {
+                    Toast.makeText(ProveedorRestActivity.this, "Se deben de llenar los campos", Toast.LENGTH_SHORT).show();
+                } else {
+                    agregarProveedor(api, etDescripcionProveedor.getText().toString(), etTelefono.getText().toString());
+                }
+            }
+        });
     }
 
     public void getProveedores(ProveedorInterface api) {
