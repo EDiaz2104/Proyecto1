@@ -13,21 +13,21 @@ import retrofit2.http.Query;
 public interface ProveedorInterface {
 
     @GET("proveedor/")
-    Call<List<Categoria>> obtenerProveedores();
+    Call<List<Proveedor>> obtenerProveedores();
 
     @GET("proveedor/{id}")
-    Call<Categoria> obtenerProveedor(
+    Call<Proveedor> obtenerProveedor(
             @Query("id") String id
     );
 
     @POST("proveedor/")
     Call<Void> agregarProveedor(
-            @Body Categoria categoria
+            @Body Proveedor proveedor
     );
 
     @PUT("proveedor/{id}")
     Call<Void> editarProveedor(
-            @Body Categoria categoria
+            @Body Proveedor proveedor
     );
 
     @DELETE("proveedor/{id}")
