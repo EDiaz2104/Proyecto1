@@ -1,23 +1,25 @@
 package com.example.crud05;
 
 public class Ubicacion {
-    private Integer idubicacion;
+    private String id;
     private String descripcionubicacion;
 
-    public Ubicacion() {
-    }
 
-    public Ubicacion(Integer idubicacion, String descripcionubicacion) {
-        this.idubicacion = idubicacion;
+    public Ubicacion(String id, String descripcionubicacion) {
+        this.id = id;
         this.descripcionubicacion = descripcionubicacion;
     }
 
-    public Integer getIdubicacion() {
-        return idubicacion;
+    public Ubicacion() {
+
     }
 
-    public void setIdubicacion(Integer idubicacion) {
-        this.idubicacion = idubicacion;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDescripcionubicacion() {

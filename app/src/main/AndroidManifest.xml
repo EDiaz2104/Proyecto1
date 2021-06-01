@@ -11,11 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".TipopagoRestActivity"></activity>
-        <activity android:name=".ProveedorRestActivity" />
-        <activity android:name=".UsuarioRestActivity" />
         <activity android:name=".AdaptadorCategoria" />
-        <activity android:name=".CategoriaRestActivity" />
+        <activity android:name=".AdaptadorHorario" />
+        <activity android:name=".AdaptadorUbicacion" />
+        <activity android:name=".TipopagoRestActivity"></activity>
+        <activity android:name=".AdaptadorProveedor" />
+        <activity android:name=".AdaptadorUsuario" />
+        <activity android:name=".CategoriaRestActivity"></activity>
+        <activity android:name=".UbicacionRestActivity"></activity>
+        <activity android:name=".HorarioRestActivity"></activity>
+        <activity android:name=".ProveedorRestActivity"></activity>
+        <activity android:name=".UsuarioRestActivity"></activity>
+
+
         <activity
             android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">
@@ -110,18 +118,6 @@
             android:name=".DetalleProductoCrudActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".HorarioEliminarConsultarActivity"
-            android:parentActivityName=".HorarioMenuActivity" />
-        <activity
-            android:name=".HorarioActualizarActivity"
-            android:parentActivityName=".HorarioMenuActivity" />
-        <activity
-            android:name=".HorarioInsertarActivity"
-            android:parentActivityName=".HorarioMenuActivity" />
-        <activity
-            android:name=".HorarioMenuActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
             android:name=".LocalMenuActivity"
             android:parentActivityName=".LocalMenuActivity" />
         <activity
@@ -139,15 +135,6 @@
         <activity
             android:name=".EncargadoLocalEliminarActivity"
             android:parentActivityName=".EncargadoLocalMenuActivity" />
-        <activity
-            android:name=".UbicacionConsulElimiActivity"
-            android:parentActivityName=".UbicacionMenuActivity" />
-        <activity
-            android:name=".UbicacionInserActuaActivity"
-            android:parentActivityName=".UbicacionMenuActivity" />
-        <activity
-            android:name=".UbicacionMenuActivity"
-            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ProductoConsultarActivity"
             android:parentActivityName=".ProductoActivity" />

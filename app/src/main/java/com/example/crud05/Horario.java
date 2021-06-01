@@ -1,36 +1,38 @@
 package com.example.crud05;
 
 public class Horario {
-    private int idhorario;
-    private int idlocal;
+    private String id;
+    private String idlocal;
     private String dia;
     private String apertura;
     private String cierre;
 
-    public Horario() {
-    }
 
-    public Horario(int idhorario, int idlocal, String dia, String apertura, String cierre) {
-        this.idhorario = idhorario;
+    public Horario(String id, String idlocal, String dia, String apertura, String cierre) {
+        this.id = id;
         this.idlocal = idlocal;
         this.dia = dia;
         this.apertura = apertura;
         this.cierre = cierre;
     }
 
-    public int getIdhorario() {
-        return idhorario;
+    public Horario() {
+
     }
 
-    public void setIdhorario(int idhorario) {
-        this.idhorario = idhorario;
+    public String getId() {
+        return id;
     }
 
-    public int getIdlocal() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIdlocal() {
         return idlocal;
     }
 
-    public void setIdlocal(int idlocal) {
+    public void setIdlocal(String idlocal) {
         this.idlocal = idlocal;
     }
 
