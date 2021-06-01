@@ -8,26 +8,26 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
-import com.example.crud05.Modelos.Usuario;
+import com.example.crud05.Modelos.UsuarioAPI;
 
 public interface UsuarioInterface {
 
     @GET("usuario/")
-    Call<List<Usuario>> obtenerUsuarios();
+    Call<List<UsuarioAPI>> obtenerUsuarios();
 
     @GET("usuario/{id}")
-    Call<Usuario> obtenerUsuario(
+    Call<UsuarioAPI> obtenerUsuario(
             @Query("id") String id
     );
 
     @POST("usuario/")
     Call<Void> agregarUsuario(
-            @Body Usuario usuario
+            @Body UsuarioAPI usuario
     );
 
     @PUT("usuario/{id}")
     Call<Void> editarUsuario(
-            @Body Usuario usario
+            @Body UsuarioAPI usario
     );
 
     @DELETE("usuario/{id}")

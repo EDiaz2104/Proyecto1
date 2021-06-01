@@ -8,16 +8,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.crud05.Modelos.Usuario;
+import com.example.crud05.Modelos.UsuarioAPI;
 import java.util.List;
 
 
 public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder>{
-
     Context context;
-    List<Usuario> listaUsuarios;
+    List<UsuarioAPI> listaUsuarios;
 
-    public AdaptadorUsuario(Context context, List<Usuario> listaUsuarios) {
+    public AdaptadorUsuario(Context context, List<UsuarioAPI> listaUsuarios) {
         this.context = context;
         this.listaUsuarios = listaUsuarios;
     }

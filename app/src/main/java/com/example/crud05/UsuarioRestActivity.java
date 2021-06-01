@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.example.crud05.Modelos.Usuario;
+import com.example.crud05.Modelos.UsuarioAPI;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
@@ -23,7 +23,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
     Button btnGuardar, btnBuscar, btnBuscarTodos, btnEliminar, btnEditar;
 
     RecyclerView rvUsuario;
-    List<Usuario> listaUsuarios = new ArrayList<>();
+    List<UsuarioAPI> listaUsuarios = new ArrayList<>();
 
     AdaptadorUsuario adaptadorUsuario;
 
@@ -58,7 +58,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
         retrofit = new AdaptadorRetrofit().getAdapatador();
         api = retrofit.create(UsuarioInterface.class);
 
-        //getUsuarios(api);
+        getUsuarios(api);
 
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
                 if(edit_IdBuscar.getText().toString().equals("")){
                     Toast.makeText(UsuarioRestActivity.this, "Inserte un ID para busacar", Toast.LENGTH_SHORT).show();
                 }else{
-                    getUsuario(api, edit_idusuario.getText().toString());
+                    getUsuario(api, edit_IdBuscar.getText().toString());
                 }
             }
         });
@@ -77,7 +77,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
                 if(edit_IdBuscar.getText().toString().equals("")){
                     Toast.makeText(UsuarioRestActivity.this, "Inserte un ID para busacar", Toast.LENGTH_SHORT).show();
                 }else{
-                    eliminarUsuarios(api, edit_idusuario.getText().toString());
+                    eliminarUsuarios(api, edit_IdBuscar.getText().toString());
                 }
             }
         });
@@ -122,10 +122,10 @@ public class UsuarioRestActivity extends AppCompatActivity {
 
     public void getUsuario(final UsuarioInterface api, String id){
         listaUsuarios.clear();
-        Call<Usuario> call = api.obtenerUsuario(id);
-        call.enqueue(new Callback<Usuario>() {
+        Call<UsuarioAPI> call = api.obtenerUsuario(id);
+        call.enqueue(new Callback<UsuarioAPI>() {
             @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+            public void onResponse(Call<UsuarioAPI> call, Response<UsuarioAPI> response) {
                 switch (response.code()){
                     case 200:
                         listaUsuarios.add(response.body());
@@ -142,24 +142,24 @@ public class UsuarioRestActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
+            public void onFailure(Call<UsuarioAPI> call, Throwable t) {
             }
         });
     }
 
     public void getUsuarios(UsuarioInterface api){
         listaUsuarios.clear();
-        Call<List<Usuario>> call = api.obtenerUsuarios();
-        call.enqueue(new Callback<List<Usuario>>() {
+        Call<List<UsuarioAPI>> call = api.obtenerUsuarios();
+        call.enqueue(new Callback<List<UsuarioAPI>>() {
             @Override
-            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
-                listaUsuarios = new ArrayList<Usuario>(response.body());
+            public void onResponse(Call<List<UsuarioAPI>> call, Response<List<UsuarioAPI>> response) {
+                listaUsuarios = new ArrayList<UsuarioAPI>(response.body());
                 adaptadorUsuario = new AdaptadorUsuario(UsuarioRestActivity.this, listaUsuarios);
                 rvUsuario.setAdapter(adaptadorUsuario);
             }
 
             @Override
-            public void onFailure(Call<List<Usuario>> call, Throwable t) {
+            public void onFailure(Call<List<UsuarioAPI>> call, Throwable t) {
 
             }
         });
@@ -195,12 +195,12 @@ public class UsuarioRestActivity extends AppCompatActivity {
 
     public void agregarUsuarios(final UsuarioInterface api, String nombre, String apellido, String telefono, String direccion, String estado, String email, String clave) {
         listaUsuarios.clear();
-        Usuario usuario = new Usuario();
+        UsuarioAPI usuario = new UsuarioAPI();
         usuario.setNombreUsuario(nombre);
         usuario.setApelUsuario(apellido);
         usuario.setTelUsuario(telefono);
         usuario.setDireccionUsuario(direccion);
-        usuario.setEstadoUsuario(Integer.parseInt(estado));
+        usuario.setEstadoUsuario(estado);
         usuario.setEmailUsuario(email);
         usuario.setClaveUsuario(clave);
 
@@ -241,13 +241,13 @@ public class UsuarioRestActivity extends AppCompatActivity {
 
     public void editarUsuarios(final UsuarioInterface api, String id, String nombre, String apellido, String telefono, String direccion, String estado, String email, String clave) {
         listaUsuarios.clear();
-        Usuario usuario = new Usuario();
-        usuario.setIdUsuario(Integer.parseInt(id));
+        UsuarioAPI usuario = new UsuarioAPI();
+        usuario.setIdUsuario(id);
         usuario.setNombreUsuario(nombre);
         usuario.setApelUsuario(apellido);
         usuario.setTelUsuario(telefono);
         usuario.setDireccionUsuario(direccion);
-        usuario.setEstadoUsuario(Integer.parseInt(estado));
+        usuario.setEstadoUsuario(estado);
         usuario.setEmailUsuario(email);
         usuario.setClaveUsuario(clave);
 
