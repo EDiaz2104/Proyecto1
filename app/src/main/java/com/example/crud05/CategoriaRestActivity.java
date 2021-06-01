@@ -106,7 +106,7 @@ public class CategoriaRestActivity extends AppCompatActivity {
                     case 400:
                         Toast.makeText(CategoriaRestActivity.this, "Faltaron campos.", Toast.LENGTH_SHORT).show();
                         etNombreCategoria.setText("");
-                        etNombreCategoria.setText("");
+                        etDescripcion.setText("");
                         break;
                     case 200:
                         Toast.makeText(CategoriaRestActivity.this, "Se inserto correctamente", Toast.LENGTH_SHORT).show();

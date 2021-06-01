@@ -11,17 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".AdaptadorCategoria" />
+         <activity android:name=".AdaptadorCategoria" />
         <activity android:name=".AdaptadorHorario" />
         <activity android:name=".AdaptadorUbicacion" />
         <activity android:name=".CategoriaRestActivity" />
         <activity android:name=".UbicacionRestActivity" />
         <activity android:name=".HorarioRestActivity"></activity>
-        <activity android:name=".Proveedor.ProveedorReadActivity" />
-        <activity android:name=".Proveedor.ProveedorDeleteActivity" />
-        <activity android:name=".Proveedor.ProveedorUpdateActivity" />
-        <activity android:name=".Proveedor.ProveedorCreateActivity" />
-        <activity android:name=".Menus.ProveedorMenuActivity" /> <!-- Menus -->
+        <activity android:name=".ProveedorRestActivity"></activity>
+        <activity android:name=".UsuarioRestActivity" />
+        <activity android:name=".AdaptadorCategoria" />
+        <activity android:name=".CategoriaRestActivity" />
         <activity
             android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">

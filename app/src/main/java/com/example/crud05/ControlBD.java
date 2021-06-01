@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.crud05.Modelos.Preferencial;
-import com.example.crud05.Modelos.Proveedor;
 import com.example.crud05.Modelos.Usuario;
 
 public class ControlBD{
@@ -942,21 +941,7 @@ default:
             return"Error de integridad. Registro usuario o local no existe";
         }
     }
-    public String insertar(Proveedor proveedor){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
-        ContentValues pro = new ContentValues();
-        pro.put("nombreProveedor", proveedor.getNombreProveedor());
-        pro.put("descripcionProveedor", proveedor.getDescripcionProveedor());
-        pro.put("telefonoProveedor", proveedor.getTelefonoProveedor());
 
-        contador=db.insert("Proveedor", null, pro);
-        if(contador==-1 || contador==0){regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }else{
-            regInsertados=regInsertados+contador;
-        }
-        return regInsertados;
-    }
 
 
     //Actualizar
@@ -993,15 +978,7 @@ default:
         }
     }
 
-    public String actualizar(Proveedor proveedor){
-        String[] id = {String.valueOf(proveedor.getIdProveedor())};
-        ContentValues cv = new ContentValues();
-        cv.put("nombreProveedor", proveedor.getNombreProveedor());
-        cv.put("descripcionProveedor", proveedor.getDescripcionProveedor());
-        cv.put("telefonoProveedor", proveedor.getTelefonoProveedor());
-        db.update("Proveedor", cv, "idProveedor = ?", id);
-        return"Registro Actualizado Correctamente";
-    }
+
 
 
     //Eliminar
@@ -1027,10 +1004,7 @@ default:
         }    }
 
 
-    public String eliminar(Proveedor proveedor){
-        db.delete("Proveedor", "idProveedor='"+proveedor.getIdProveedor()+"'", null);
-        return"Registro Borrado Correctamente";
-    }
+
     
     //Consultar
     public Usuario consultarUsuario(String idU){
@@ -1065,22 +1039,6 @@ default:
             return null;
         }
     }
-
-    public Proveedor consultarProveedor(String idP){
-        String[] idp = {idP};
-        Cursor cursor = db.query("Proveedor", campos_preferencial, "idProveedor = ?", idp, null, null, null);
-        if(cursor.moveToFirst()){
-            Proveedor proveedor = new Proveedor();
-            proveedor.setIdProveedor(cursor.getInt(0));
-            proveedor.setNombreProveedor(cursor.getString(1));
-            proveedor.setDescripcionProveedor(cursor.getString(2));
-            proveedor.setTelefonoProveedor(cursor.getString(3));
-            return proveedor;
-        }else{
-            return null;
-        }
-    }
-    
 
 
     //Integridades

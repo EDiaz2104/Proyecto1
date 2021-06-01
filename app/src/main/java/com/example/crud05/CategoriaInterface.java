@@ -30,7 +30,7 @@ public interface CategoriaInterface {
             @Body Categoria categoria
     );
 
-    @DELETE("categoriaProducto/id")
+    @DELETE("categoriaProducto/{id}")
     Call<Void> eliminarCategoria(
             @Query("id") String id
     );
