@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".ProveedorRestActivity"></activity>
+        <activity android:name=".TipopagoRestActivity"></activity>
+        <activity android:name=".ProveedorRestActivity" />
         <activity android:name=".UsuarioRestActivity" />
         <activity android:name=".AdaptadorCategoria" />
         <activity android:name=".CategoriaRestActivity" />
