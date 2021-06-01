@@ -10,28 +10,28 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
-public interface CategoriaInterface {
+public interface ProveedorInterface {
 
-    @GET("categoriaProducto/")
-    Call<List<Categoria>> obtenerCategorias();
+    @GET("proveedor/")
+    Call<List<Categoria>> obtenerProveedores();
 
-    @GET("categoriaProducto/{id}")
-    Call<Categoria> obtenerCategoria(
+    @GET("proveedor/{id}")
+    Call<Categoria> obtenerProveedor(
             @Query("id") String id
     );
 
-    @POST("categoriaProducto/")
-    Call<Void> agregarCategoria(
+    @POST("proveedor/")
+    Call<Void> agregarProveedor(
             @Body Categoria categoria
     );
 
-    @PUT("categoriaProducto/{id}")
-    Call<Void> editarCategoria(
+    @PUT("proveedor/{id}")
+    Call<Void> editarProveedor(
             @Body Categoria categoria
     );
 
-    @DELETE("categoriaProducto/{id}")
-    Call<Void> eliminarCategoria(
+    @DELETE("proveedor/{id}")
+    Call<Void> eliminarProveedor(
             @Query("id") String id
     );
 }
