@@ -693,69 +693,6 @@ private static class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public String insertar(Repartidor repartidor){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
-        ContentValues ped = new ContentValues();
-        ped.put("idRepartidor", repartidor.getIdRepartidor());
-        ped.put("idLocal", repartidor.getIdLocal());
-        ped.put("NombreRepartidor", repartidor.getNombreRepartidor());
-        ped.put("CarnetRepartidor", repartidor.getCarnetRepartidor());
-        contador=db.insert("repartidor", null, ped);
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else {
-            regInsertados=regInsertados+contador;
-        }
-        return regInsertados;
-    }
-
-    public String actualizar(Repartidor repartidor){
-        if(repartidor!=null){
-            String[] id = {String.valueOf(repartidor.getIdRepartidor())};
-            ContentValues cv = new ContentValues();
-            cv.put("idRepartidor", repartidor.getIdRepartidor());
-            cv.put("idLocal", repartidor.getIdLocal());
-            cv.put("NombreRepartidor", repartidor.getNombreRepartidor());
-            cv.put("CarnetRepartidor", repartidor.getCarnetRepartidor());
-            db.update("repartidor", cv, "idRepartidor = ?", id);
-            return "Registro Actualizado Correctamente";
-        }else{
-            return "Registro con Repartidor " + repartidor.getIdRepartidor() + " no existe";
-        }
-    }
-
-    public Repartidor consultarRepartidor(String idRepartidor){
-
-        String[] id = {idRepartidor};
-        Cursor cursor = db.query("repartidor", camposRepartidor, "idRepartidor = ?",
-                id, null, null, null);
-        if(cursor.moveToFirst()){
-            Repartidor repartidor= new Repartidor();
-            repartidor.setIdRepartidor(cursor.getInt(0));
-            repartidor.setIdLocal(cursor.getInt(1));
-            repartidor.setNombreRepartidor(cursor.getString(2));
-            repartidor.setCarnetRepartidor(cursor.getString(3));
-            return repartidor;
-        }else{
-            return null;
-        }
-
-    }
-
-    public String eliminar(Repartidor repartidor){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        if (repartidor!=null) {
-            contador+=db.delete("repartidor", "idRepartidor='"+repartidor.getIdRepartidor()+"'", null);
-        }
-        contador+=db.delete("repartidor", "idRepartidor='"+repartidor.getIdRepartidor()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
-
-    }
 
 
 

@@ -1,4 +1,4 @@
-package com.example.crud05;
+package com.example.crud05.CategoriaProducto;
 
 public class Categoria {
     private String id;
