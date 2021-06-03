@@ -1,27 +1,21 @@
 package com.example.crud05;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
-public class AdaptadorUbicacion extends RecyclerView.Adapter<AdaptadorUbicacion.UbicacionViewHolder> {
+public class AdaptadorUbicacion extends RecyclerView.Adapter<AdaptadorUbicacion.UbicacionViewHolder>{
     Context context;
     List<Ubicacion> listaUbicacion;
-
-    public AdaptadorUbicacion(Context context, List<Ubicacion> listaUbicacion) {
-        this.context = context;
-        this.listaUbicacion = listaUbicacion;
-    }
 
     @NonNull
     @Override
@@ -30,11 +24,15 @@ public class AdaptadorUbicacion extends RecyclerView.Adapter<AdaptadorUbicacion.
         return new AdaptadorUbicacion.UbicacionViewHolder(vista);
     }
 
+    public AdaptadorUbicacion(Context context, List<Ubicacion> listaUbicacion) {
+        this.context = context;
+        this.listaUbicacion = listaUbicacion;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull UbicacionViewHolder holder, int position) {
         holder.tvIdUbicacion.setText(listaUbicacion.get(position).getId());
         holder.tvDescripcionUbicacion.setText(listaUbicacion.get(position).getDescripcionubicacion());
-
     }
 
     @Override
@@ -48,8 +46,11 @@ public class AdaptadorUbicacion extends RecyclerView.Adapter<AdaptadorUbicacion.
 
         public UbicacionViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvIdUbicacion = itemView.findViewById(R.id.tvIdUbicacion);
+
+            tvIdUbicacion = itemView.findViewById(R.id.tvId);
             tvDescripcionUbicacion = itemView.findViewById(R.id.tvDescripcionUbicacion);
+
         }
     }
+
 }

@@ -15,36 +15,35 @@
             android:id="@+id/tvIdHorario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="20"
             android:hint="#" />
 
         <TextView
             android:id="@+id/tvIdLocal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="90"
-            android:hint="Local"
-            android:gravity="center" />
+            android:layout_weight="20"
+            android:hint="#" />
 
         <TextView
             android:id="@+id/tvDia"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="90"
+            android:layout_weight="20"
             android:hint="Dia"
             android:gravity="center" />
         <TextView
             android:id="@+id/tvApertura"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="90"
+            android:layout_weight="20"
             android:hint="Apertura"
             android:gravity="center" />
         <TextView
             android:id="@+id/tvCierre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="90"
+            android:layout_weight="20"
             android:hint="Cierre"
             android:gravity="center" />
 

@@ -9,16 +9,18 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
+
 
 public interface UbicacionInterface {
 
     @GET("ubicacion/")
     Call<List<Ubicacion>> obtenerUbicaciones();
 
-    @GET("ubicacion/{id}")
+    @GET("ubicacion/{idUbicacion}/")
     Call<Ubicacion> obtenerUbicacion(
-            @Query("id") String id
+            @Path("id") String  id
     );
 
     @POST("ubicacion/")
@@ -26,13 +28,17 @@ public interface UbicacionInterface {
             @Body Ubicacion ubicacion
     );
 
-    @PUT("ubicacion/{id}")
+    @PUT("ubicacion/{id}/")
     Call<Void> editarUbicacion(
-            @Body Ubicacion ubicacion
+            @Body Ubicacion ubicacion,
+            @Path("id") String id
+
     );
 
-    @DELETE("ubicacion/id")
+    @DELETE("ubicacion/{id}/")
     Call<Void> eliminarUbicacion(
-            @Query("id") String id
+            @Path("id") String id
     );
 }
+
+
