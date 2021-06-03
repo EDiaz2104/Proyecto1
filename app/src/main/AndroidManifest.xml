@@ -11,18 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crud05">
-        <activity android:name=".AdaptadorCategoria" />
+        <activity android:name=".Repartidor.RepartidorRestActivity"></activity>
+        <activity android:name=".CategoriaProducto.AdaptadorCategoria" />
         <activity android:name=".AdaptadorHorario" />
         <activity android:name=".AdaptadorUbicacion" />
+        <activity android:name=".TipopagoRestActivity" />
         <activity android:name=".AdaptadorProveedor" />
         <activity android:name=".AdaptadorUsuario" />
-        <activity android:name=".CategoriaRestActivity"></activity>
-        <activity android:name=".UbicacionRestActivity"></activity>
-        <activity android:name=".HorarioRestActivity"></activity>
-        <activity android:name=".ProveedorRestActivity"></activity>
-        <activity android:name=".UsuarioRestActivity"></activity>
-
-
+        <activity android:name=".CategoriaProducto.CategoriaRestActivity" />
+        <activity android:name=".UbicacionRestActivity" />
+        <activity android:name=".HorarioRestActivity" />
+        <activity android:name=".ProveedorRestActivity" />
+        <activity android:name=".UsuarioRestActivity" />
         <activity
             android:name=".Menus.UsuarioMenuActivity"
             android:parentActivityName=".MainActivity">
@@ -185,21 +185,6 @@
         <activity
             android:name=".PedidoAsignadoMenuActivity"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".RepartidorMenuActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".RepartidorInsertatActivity"
-            android:parentActivityName=".RepartidorMenuActivity" />
-        <activity
-            android:name=".RepartidorActualizarActivity"
-            android:parentActivityName=".RepartidorMenuActivity" />
-        <activity
-            android:name=".RepartidorConsultarActivity"
-            android:parentActivityName=".RepartidorMenuActivity" />
-        <activity
-            android:name=".RepartidorEliminarActivity"
-            android:parentActivityName=".RepartidorMenuActivity" />
         <activity
             android:name=".PedidoConsultarActivity"
             android:parentActivityName=".PedidoMenuActivity" />

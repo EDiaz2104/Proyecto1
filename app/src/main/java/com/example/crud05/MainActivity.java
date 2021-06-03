@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
 
-String[] menu={"Tabla TipoPago","Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Encargado local","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado","Tabla Detalle Productos","Tabla Preferencial","Tabla Usuario","Tabla Categoria","Tabla Ubicacion","Tabla Horario","Tabla UsuarioAPI","Tabla Proveedor","LLenar Base de datos"}; //No borrar el llenar base
-String[] activities={"TipoPagoActivity","DetallePedidoActivity","ProductoActivity","LocalMenuActivity","EncargadoLocalMenuActivity","PedidoMenuActivity","RepartidorMenuActivity","PedidoAsignadoMenuActivity","DetalleProductoCrudActivity","Menus.PreferencialMenuActivity","Menus.UsuarioMenuActivity","CategoriaRestActivity", "UbicacionRestActivity","HorarioRestActivity","UsuarioRestActivity","ProveedorRestActivity"};
+String[] menu={"Tabla DetallePedido","Tabla Producto","Tabla Local","Tabla Encargado local","Tabla Pedido","Tabla Repartidor","Tabla Pedido Asignado","Tabla Detalle Productos","Tabla Preferencial","Tabla Usuario","Tabla Categoria","Tabla Ubicacion","Tabla Horario","Tabla TipoPagoAPI","Tabla UsuarioAPI","Tabla Proveedor","LLenar Base de datos"}; //No borrar el llenar base
+String[] activities={"DetallePedidoActivity","ProductoActivity","LocalMenuActivity","EncargadoLocalMenuActivity","PedidoMenuActivity","Repartidor.RepartidorRestActivity","PedidoAsignadoMenuActivity","DetalleProductoCrudActivity","Menus.PreferencialMenuActivity","Menus.UsuarioMenuActivity","CategoriaRestActivity", "UbicacionRestActivity","TipopagoRestActivity","HorarioRestActivity","UsuarioRestActivity","ProveedorRestActivity"};
     ControlBD BDhelper;
     @Override
     public void onCreate(Bundle savedInstanceState) {

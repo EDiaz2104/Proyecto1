@@ -1,4 +1,4 @@
-package com.example.crud05;
+package com.example.crud05.CategoriaProducto;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+import com.example.crud05.AdaptadorRetrofit;
+import com.example.crud05.R;
 
 import java.util.ArrayList;
 import java.util.List;
