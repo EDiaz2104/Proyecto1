@@ -133,7 +133,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
                         adaptadorUsuario = new AdaptadorUsuario(UsuarioRestActivity.this, listaUsuarios);
                         rvUsuario.setAdapter(adaptadorUsuario);
                         break;
-                    case 204:
+                    case 404:
                         Toast.makeText(UsuarioRestActivity.this, "No existe ese registro", Toast.LENGTH_SHORT).show();
                         edit_IdBuscar.setText("");
                         getUsuarios(api);
@@ -168,17 +168,17 @@ public class UsuarioRestActivity extends AppCompatActivity {
 
     public void eliminarUsuarios(final UsuarioInterface api, String id){
         listaUsuarios.clear();
-        Call<Void> call = api.eliminarUsiaro(id);
+        Call<Void> call = api.eliminarUsuario(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 switch (response.code()){
-                    case 200:
+                    case 204:
                         Toast.makeText(UsuarioRestActivity.this, "Se elimino correctamente", Toast.LENGTH_SHORT).show();
                         edit_IdBuscar.setText("");
                         getUsuarios(api);
                         break;
-                    case 204:
+                    case 404:
                         Toast.makeText(UsuarioRestActivity.this, "No existe ese registro", Toast.LENGTH_SHORT).show();
                         edit_IdBuscar.setText("");
                         getUsuarios(api);
@@ -219,7 +219,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
                         edit_email.setText("");
                         edit_clave.setText("");
                         break;
-                    case 200:
+                    case 201:
                         Toast.makeText(UsuarioRestActivity.this, "Se inserto correctamente", Toast.LENGTH_SHORT).show();
                         edit_nombre.setText("");
                         edit_apellido.setText("");
@@ -251,7 +251,7 @@ public class UsuarioRestActivity extends AppCompatActivity {
         usuario.setEmailUsuario(email);
         usuario.setClaveUsuario(clave);
 
-        Call<Void> call = api.editarUsuario(usuario);
+        Call<Void> call = api.editarUsuario(usuario, id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

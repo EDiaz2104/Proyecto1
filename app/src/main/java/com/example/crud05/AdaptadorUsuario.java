@@ -32,11 +32,11 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
     public void onBindViewHolder(@NonNull UsuarioViewHolder holder, int position) {
         holder.tvIdusuario.setText(listaUsuarios.get(position).getIdUsuario());
         holder.tvNombre.setText(listaUsuarios.get(position).getNombreUsuario());
-        //holder.tvApellido.setText(listaUsuarios.get(position).getApelUsuario());
+        holder.tvApellido.setText(listaUsuarios.get(position).getApelUsuario());
         //holder.tvTelefono.setText(listaUsuarios.get(position).getTelUsuario());
         //holder.tvDireccion.setText(listaUsuarios.get(position).getDireccionUsuario());
         //holder.tvEstado.setText(listaUsuarios.get(position).getEstadoUsuario());
-        //holder.tvEmail.setText(listaUsuarios.get(position).getEmailUsuario());
+        holder.tvEmail.setText(listaUsuarios.get(position).getEmailUsuario());
         //holder.tvClave.setText(listaUsuarios.get(position).getClaveUsuario());
     }
 
@@ -53,7 +53,8 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
 
             tvIdusuario = itemView.findViewById(R.id.tvIdUsuariRS);
             tvNombre = itemView.findViewById(R.id.tvNombreUsuarioRS);
-
+            tvApellido = itemView.findViewById(R.id.tvApellidoRS);
+            tvEmail = itemView.findViewById(R.id.tvEmailRS);
         }
     }
 }

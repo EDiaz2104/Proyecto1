@@ -8,16 +8,16 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 
 public interface TipopagoInterface {
 
     @GET("tipoPago/")
     Call<List<TipoPagoAPI>> obtenerTipopagos();
 
-    @GET("tipoPago/{id}")
+    @GET("tipoPago/{id}/")
     Call<TipoPagoAPI> obtenerTipopago(
-            @Query("id") String id
+            @Path("id") String  id
     );
 
     @POST("tipoPago/")
@@ -25,14 +25,16 @@ public interface TipopagoInterface {
             @Body TipoPagoAPI tipopago
     );
 
-    @PUT("tipoPago/{id}")
+    @PUT("tipoPago/{id}/")
     Call<Void> editarTipopago(
-            @Body TipoPagoAPI tipopago
+            @Body TipoPagoAPI tipopago,
+            @Path("id") String id
+
     );
 
-    @DELETE("tipoPago/{id}")
+    @DELETE("tipoPago/{id}/")
     Call<Void> eliminarTipopago(
-            @Query("id") String id
+            @Path("id") String id
     );
 
 }

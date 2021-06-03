@@ -1,13 +1,40 @@
 package com.example.crud05.Modelos;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class UsuarioAPI {
+
+    @Expose
+    @SerializedName("id")
     private String id;
+
+    @Expose
+    @SerializedName("nombreUsuario")
     private String nombreUsuario;
+
+    @Expose
+    @SerializedName("apelUsuario")
     private String apelUsuario;
+
+    @Expose
+    @SerializedName("telUsuario")
     private String telUsuario;
+
+    @Expose
+    @SerializedName("direccionUsuario")
     private String direccionUsuario;
+
+    @Expose
+    @SerializedName("estadoUsuario")
     private String estadoUsuario;
+
+    @Expose
+    @SerializedName("emailUsuario")
     private String emailUsuario;
+
+    @Expose
+    @SerializedName("claveUsuario")
     private String claveUsuario;
 
     public UsuarioAPI() {

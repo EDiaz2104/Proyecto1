@@ -1,8 +1,16 @@
 package com.example.crud05;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class TipoPagoAPI {
 
+    @Expose
+    @SerializedName("id")
     private String id;
+
+    @Expose
+    @SerializedName("tipoPago")
     private String tipoPago;
 
     public TipoPagoAPI() {

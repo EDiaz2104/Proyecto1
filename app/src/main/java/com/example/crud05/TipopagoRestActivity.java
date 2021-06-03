@@ -115,7 +115,7 @@ public class TipopagoRestActivity extends AppCompatActivity {
                         adaptadorTipopago = new AdaptadorTipopago(TipopagoRestActivity.this, listaTipopagos);
                         rvTipopago.setAdapter(adaptadorTipopago);
                         break;
-                    case 204:
+                    case 404:
                         Toast.makeText(TipopagoRestActivity.this, "No existe ese registro", Toast.LENGTH_SHORT).show();
                         edit_IdBuscar.setText("");
                         getTipopagos(api);
@@ -155,12 +155,12 @@ public class TipopagoRestActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 switch (response.code()){
-                    case 200:
+                    case 204:
                         Toast.makeText(TipopagoRestActivity.this, "Se elimino correctamente", Toast.LENGTH_SHORT).show();
                         edit_IdBuscar.setText("");
                         getTipopagos(api);
                         break;
-                    case 204:
+                    case 404:
                         Toast.makeText(TipopagoRestActivity.this, "No existe ese registro", Toast.LENGTH_SHORT).show();
                         edit_IdBuscar.setText("");
                         getTipopagos(api);
@@ -189,7 +189,7 @@ public class TipopagoRestActivity extends AppCompatActivity {
                         Toast.makeText(TipopagoRestActivity.this, "Faltaron campos.", Toast.LENGTH_SHORT).show();
                         edit_tipopago.setText("");
                         break;
-                    case 200:
+                    case 201:
                         Toast.makeText(TipopagoRestActivity.this, "Se inserto correctamente", Toast.LENGTH_SHORT).show();
                         edit_tipopago.setText("");
                         getTipopagos(api);
@@ -208,7 +208,7 @@ public class TipopagoRestActivity extends AppCompatActivity {
         tipopago.setIdTipoPago(id);
         tipopago.setTipoPago(tipo);
 
-        Call<Void> call = api.editarTipopago(tipopago);
+        Call<Void> call = api.editarTipopago(tipopago, id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

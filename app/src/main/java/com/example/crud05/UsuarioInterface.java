@@ -7,7 +7,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 import com.example.crud05.Modelos.UsuarioAPI;
 
 public interface UsuarioInterface {
@@ -15,9 +15,9 @@ public interface UsuarioInterface {
     @GET("usuario/")
     Call<List<UsuarioAPI>> obtenerUsuarios();
 
-    @GET("usuario/{id}")
+    @GET("usuario/{id}/")
     Call<UsuarioAPI> obtenerUsuario(
-            @Query("id") String id
+            @Path("id") String  id
     );
 
     @POST("usuario/")
@@ -25,14 +25,15 @@ public interface UsuarioInterface {
             @Body UsuarioAPI usuario
     );
 
-    @PUT("usuario/{id}")
+    @PUT("usuario/{id}/")
     Call<Void> editarUsuario(
-            @Body UsuarioAPI usario
+            @Body UsuarioAPI usuario,
+            @Path("id") String id
+
     );
 
-    @DELETE("usuario/{id}")
-    Call<Void> eliminarUsiaro(
-            @Query("id") String id
+    @DELETE("usuario/{id}/")
+    Call<Void> eliminarUsuario(
+            @Path("id") String id
     );
-
 }

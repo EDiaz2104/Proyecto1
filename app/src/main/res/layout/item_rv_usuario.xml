@@ -15,16 +15,30 @@
             android:id="@+id/tvIdUsuariRS"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="5"
             android:hint="#" />
 
         <TextView
             android:id="@+id/tvNombreUsuarioRS"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="90"
-            android:hint="Nombre"
-            android:gravity="center" />
+            android:layout_weight="30"
+            android:gravity="center"
+            android:hint="Nombre" />
+
+        <TextView
+            android:id="@+id/tvApellidoRS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:hint="Apellido" />
+
+        <TextView
+            android:id="@+id/tvEmailRS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:hint="Email" />
 
     </LinearLayout>
 
