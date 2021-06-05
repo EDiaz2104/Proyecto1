@@ -30,6 +30,7 @@ public class AdaptadorProveedor extends RecyclerView.Adapter<AdaptadorProveedor.
     @Override
     public void onBindViewHolder(@NonNull AdaptadorProveedor.ProveedorViewHolder holder, int position) {
         holder.tvIdProveedor.setText(listaProveedores.get(position).getId());
+        holder.tvNombreProveedor.setText(listaProveedores.get(position).getNombreProveedor());
         holder.tvDescripcionProveedor.setText(listaProveedores.get(position).getDescripcionProveedor());
         holder.tvTelefonoProveedor.setText(listaProveedores.get(position).getTelefonoProveedor());
     }
@@ -41,11 +42,12 @@ public class AdaptadorProveedor extends RecyclerView.Adapter<AdaptadorProveedor.
 
     public class ProveedorViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvIdProveedor, tvDescripcionProveedor,tvTelefonoProveedor;
+        TextView tvIdProveedor,tvNombreProveedor, tvDescripcionProveedor,tvTelefonoProveedor;
 
         public ProveedorViewHolder(@NonNull View itemView) {
             super(itemView);
             tvIdProveedor = itemView.findViewById(R.id.tvIdProveedor);
+            tvNombreProveedor=itemView.findViewById(R.id.tvNombreProveedor);
             tvDescripcionProveedor = itemView.findViewById(R.id.tvDescripcionProveedor);
             tvTelefonoProveedor = itemView.findViewById(R.id.tvTelefonoProveedor);
         }

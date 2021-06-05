@@ -19,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ProveedorRestActivity extends AppCompatActivity {
-    EditText etDescripcionProveedor, etTelefono;
+    EditText etNombreProveedor ,etDescripcionProveedor, etTelefono;
     Button btnTodosBuscar, btnAgregar;
 
     RecyclerView rvProveedor;
@@ -33,6 +33,7 @@ public class ProveedorRestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proveedor_rest);
+        etNombreProveedor=findViewById(R.id.etNombreProveedor);
         etDescripcionProveedor = findViewById(R.id.etDescripcionProveedor);
         etTelefono = findViewById(R.id.etTelefono);
         btnTodosBuscar = findViewById(R.id.btnTodosBuscar);
@@ -53,10 +54,10 @@ public class ProveedorRestActivity extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(etDescripcionProveedor.getText().toString().equals("") || etTelefono.getText().toString().equals("")) {
+                if(etDescripcionProveedor.getText().toString().equals("") || etNombreProveedor.getText().toString().equals("")|| etTelefono.getText().toString().equals("")) {
                     Toast.makeText(ProveedorRestActivity.this, "Se deben de llenar los campos", Toast.LENGTH_SHORT).show();
                 } else {
-                    agregarProveedor(api, etDescripcionProveedor.getText().toString(), etTelefono.getText().toString());
+                    agregarProveedor(api,etNombreProveedor.getText().toString() ,etDescripcionProveedor.getText().toString(), etTelefono.getText().toString());
                 }
             }
         });
@@ -79,9 +80,10 @@ public class ProveedorRestActivity extends AppCompatActivity {
         });
     }
 
-    public void agregarProveedor(final ProveedorInterface api, String descripcionProveedor, String Telefono) {
+    public void agregarProveedor(final ProveedorInterface api,String nombreproveedor, String descripcionProveedor, String Telefono) {
         listaProveedor.clear();
         Proveedor proveedor = new Proveedor();
+        proveedor.setNombreProveedor(nombreproveedor);
         proveedor.setDescripcionProveedor(descripcionProveedor);
         proveedor.setTelefonoProveedor(Telefono);
 

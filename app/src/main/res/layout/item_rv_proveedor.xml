@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="60dp"
         android:layout_marginTop="15dp"
         android:weightSum="100">
 
@@ -26,6 +25,13 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:hint="Descripcion"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/tvNombreProveedor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:hint="nombre proveedor"
             android:gravity="center" />
 
         <TextView

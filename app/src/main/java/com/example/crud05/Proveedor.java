@@ -2,16 +2,26 @@ package com.example.crud05;
 
 public class Proveedor {
     String id;
+    String nombreProveedor;
     String descripcionProveedor;
     String telefonoProveedor;
 
     public Proveedor() {
     }
 
-    public Proveedor(String id, String descripcionProveedor, String telefonoProveedor) {
+    public Proveedor(String id, String nombreProveedor, String descripcionProveedor, String telefonoProveedor) {
         this.id = id;
+        this.nombreProveedor = nombreProveedor;
         this.descripcionProveedor = descripcionProveedor;
         this.telefonoProveedor = telefonoProveedor;
+    }
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
     }
 
     public String getId() {
